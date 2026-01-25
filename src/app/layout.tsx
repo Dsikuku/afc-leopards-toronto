@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-ingwe-dark text-white selection:bg-ingwe-blue selection:text-white`}>
-        <Navbar />
+        <Navbar cartCount={0} />
         <main className="pt-24 min-h-screen"> {/* pt-24 ensures content isn't hidden under the fixed nav */}
         {children}
         </main>
