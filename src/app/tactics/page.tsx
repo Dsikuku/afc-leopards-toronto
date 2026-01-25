@@ -1,5 +1,6 @@
 "use client";
-import { ListOrdered, Users, TrendingUp, ShieldAlert } from 'lucide-react';
+import { useState } from 'react';
+import { ListOrdered, Users, TrendingUp, ShieldAlert, Target, MousePointer2 } from 'lucide-react';
 
 const standings = [
   { pos: 1, team: "Gor Mahia", p: 18, gd: "+15", pts: 40 },
@@ -15,7 +16,23 @@ const squad = [
   { no: 9, name: "Victor Omune", pos: "FWD", status: "Available" },
 ];
 
+const formation433 = [
+  { pos: "GK", top: "85%", left: "50%", name: "The Wall" },
+  { pos: "RB", top: "65%", left: "85%", name: "Overlap" },
+  { pos: "CB", top: "70%", left: "65%", name: "The Rock" },
+  { pos: "CB", top: "70%", left: "35%", name: "General" },
+  { pos: "LB", top: "65%", left: "15%", name: "Speed" },
+  { pos: "CDM", top: "50%", left: "50%", name: "Engine" },
+  { pos: "CM", top: "40%", left: "30%", name: "Maestro" },
+  { pos: "CM", top: "40%", left: "70%", name: "Vision" },
+  { pos: "RW", top: "15%", left: "80%", name: "The Flash" },
+  { pos: "ST", top: "10%", left: "50%", name: "Apex" },
+  { pos: "LW", top: "15%", left: "20%", name: "Wizard" },
+];
+
 export default function TacticsPage() {
+  const [selectedPos, setSelectedPos] = useState<string | null>(null);
+
   return (
     <div className="bg-ingwe-dark min-h-screen pb-24 text-white">
       {/* --- HEADER --- */}
@@ -27,16 +44,16 @@ export default function TacticsPage() {
             </div>
             <span className="text-ingwe-blue font-black uppercase tracking-[0.3em] text-xs">Technical Area</span>
           </div>
-          <h1 className="text-6xl font-black italic tracking-tighter uppercase">
+          <h1 className="text-6xl font-black italic tracking-tighter uppercase leading-none">
             Tactical <span className="text-ingwe-blue">Board</span>
           </h1>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 mt-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto px-4 mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
         
-        {/* --- LEAGUE STANDINGS --- */}
-        <div className="lg:col-span-1">
+        {/* --- LEFT: STANDINGS (3 Columns) --- */}
+        <div className="lg:col-span-3 space-y-8">
           <div className="bg-ingwe-concrete p-6 border border-white/5">
             <h3 className="text-xl font-black italic uppercase mb-6 flex items-center gap-2">
               <ListOrdered size={20} className="text-ingwe-blue" /> FKF Premier League
@@ -47,59 +64,99 @@ export default function TacticsPage() {
                   <tr>
                     <th className="pb-4">POS</th>
                     <th className="pb-4">TEAM</th>
-                    <th className="pb-4 text-right">GD</th>
                     <th className="pb-4 text-right">PTS</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5">
                   {standings.map((team) => (
-                    <tr key={team.pos} className={team.team === "AFC Leopards" ? "text-ingwe-blue" : "text-gray-300"}>
+                    <tr key={team.pos} className={team.team === "AFC Leopards" ? "text-ingwe-blue bg-ingwe-blue/5" : "text-gray-300"}>
                       <td className="py-4 italic">{team.pos}</td>
                       <td className="py-4 uppercase">{team.team}</td>
-                      <td className="py-4 text-right font-mono">{team.gd}</td>
                       <td className="py-4 text-right font-black">{team.pts}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <button className="w-full mt-6 py-3 border border-white/10 text-[10px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">
-              View Full Table
-            </button>
+          </div>
+
+          <div className="bg-ingwe-concrete p-6 border border-white/5">
+             <h3 className="text-lg font-black italic uppercase mb-4 text-ingwe-blue">Philosophy</h3>
+             <p className="text-xs text-gray-400 leading-relaxed italic uppercase font-bold">
+               High-intensity verticality. We control the half-spaces and exploit wide areas with overlapping fullbacks.
+             </p>
           </div>
         </div>
 
-        {/* --- SQUAD DEPTH --- */}
-        <div className="lg:col-span-2">
+        {/* --- CENTER: THE PITCH (6 Columns) --- */}
+        <div className="lg:col-span-6">
+          <div className="relative aspect-[2/3] md:aspect-[3/4] bg-[#1a2e1a] border-[4px] border-white/20 rounded-lg overflow-hidden shadow-2xl">
+            {/* Pitch Markings */}
+            <div className="absolute inset-0 border-2 border-white/10 m-4" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[15%] border-b-2 border-white/10" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-[15%] border-t-2 border-white/10" />
+            <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-white/10 rounded-full" />
+
+            {/* Players */}
+            {formation433.map((player, index) => (
+                <div
+                    key={`${player.pos}-${index}`} // Fix: Combine position and index for a unique key
+                    className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group z-10"
+                    style={{ top: player.top, left: player.left }}
+                    onClick={() => setSelectedPos(player.pos)}
+                >
+                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center font-black border-2 transition-all duration-300 ${
+                    selectedPos === player.pos 
+                        ? 'bg-ingwe-blue border-white scale-125 shadow-[0_0_20px_rgba(0,86,179,0.8)]' 
+                        : 'bg-black/80 border-ingwe-blue group-hover:border-white'
+                    }`}>
+                    {player.pos}
+                    </div>
+                    <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-[9px] font-black uppercase tracking-tighter bg-black/80 px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                    {player.name}
+                    </span>
+                </div>
+                ))}
+          </div>
+        </div>
+
+        {/* --- RIGHT: SQUAD (3 Columns) --- */}
+        <div className="lg:col-span-3 space-y-6">
           <div className="bg-ingwe-concrete p-6 border border-white/5">
             <h3 className="text-xl font-black italic uppercase mb-6 flex items-center gap-2">
-              <Users size={20} className="text-ingwe-blue" /> First Team Squad
+              <Users size={20} className="text-ingwe-blue" /> First Team
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-3">
               {squad.map((player) => (
-                <div key={player.no} className="flex items-center justify-between p-4 bg-black/40 border-l-2 border-ingwe-blue group hover:bg-ingwe-blue/10 transition-all">
-                  <div className="flex items-center gap-4">
-                    <span className="text-2xl font-black italic text-white/20 group-hover:text-ingwe-blue transition-colors">#{player.no}</span>
-                    <div>
-                      <p className="font-black uppercase italic leading-none">{player.name}</p>
-                      <p className="text-[10px] text-gray-500 font-bold uppercase mt-1">{player.pos}</p>
-                    </div>
+                <div key={player.no} className="p-3 bg-black/40 border-l-2 border-ingwe-blue flex justify-between items-center">
+                  <div>
+                    <p className="text-xs font-black uppercase italic leading-none">{player.name}</p>
+                    <p className="text-[9px] text-gray-500 font-bold uppercase mt-1">{player.pos}</p>
                   </div>
-                  <div className={`text-[8px] font-black px-2 py-1 uppercase tracking-tighter ${player.status === 'Available' ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500'}`}>
+                  <div className={`text-[7px] font-black px-1.5 py-0.5 uppercase ${player.status === 'Available' ? 'bg-green-500/10 text-green-500' : 'bg-red-500/10 text-red-500'}`}>
                     {player.status}
                   </div>
                 </div>
               ))}
             </div>
-            
-            {/* Tactical Note */}
-            <div className="mt-8 p-6 bg-ingwe-blue/5 border border-ingwe-blue/20 flex gap-4">
-               <ShieldAlert className="text-ingwe-blue shrink-0" />
-               <div>
-                 <p className="text-xs font-black uppercase text-ingwe-blue mb-1">Coach's Brief</p>
-                 <p className="text-sm italic text-gray-400">High-press system expected for the upcoming derby. Focusing on transitional speed in the final third.</p>
+          </div>
+
+          <div className="p-6 bg-ingwe-blue/5 border border-ingwe-blue/20">
+             <div className="flex items-center gap-2 text-ingwe-blue mb-4">
+               <ShieldAlert size={18} />
+               <span className="text-[10px] font-black uppercase tracking-widest">Analysis</span>
+             </div>
+             {selectedPos ? (
+               <div className="animate-in fade-in slide-in-from-right-4">
+                 <p className="text-xs font-black uppercase text-white mb-2">{selectedPos} Role Detail</p>
+                 <p className="text-xs italic text-gray-400 leading-relaxed">
+                   Key in the transition phase. Expected to maintain a high line and dictate the tempo of the counter-press.
+                 </p>
                </div>
-            </div>
+             ) : (
+               <p className="text-xs italic text-gray-600">Select a player on the pitch to view role analysis.</p>
+             )}
           </div>
         </div>
 
