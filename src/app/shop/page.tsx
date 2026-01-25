@@ -1,5 +1,7 @@
 "use client";
 import { ShoppingBag, Tag, Star, ArrowRight, ShieldCheck } from 'lucide-react';
+import { useState } from 'react';
+import CartDrawer from '@/components/CartDrawer';
 
 const products = [
   {
@@ -32,6 +34,15 @@ const products = [
 ];
 
 export default function ShopPage() {
+  // --- STATE MOVED INSIDE COMPONENT ---
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState<any[]>([]);
+
+  const addToCart = (product: any) => {
+    setCartItems([...cartItems, product]);
+    setIsCartOpen(true);
+  };
+
   return (
     <div className="bg-ingwe-dark min-h-screen pb-24 text-white">
       {/* --- SHOP HERO --- */}
@@ -52,7 +63,6 @@ export default function ShopPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {products.map((item) => (
             <div key={item.id} className="group bg-ingwe-concrete border border-white/5 flex flex-col">
-              {/* Product Image */}
               <div className="relative aspect-square overflow-hidden bg-black/20">
                 <div className="absolute top-4 left-4 z-10 bg-white text-black text-[10px] font-black uppercase px-3 py-1 skew-x-[-10deg]">
                   {item.tag}
@@ -62,15 +72,16 @@ export default function ShopPage() {
                   alt={item.name}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                 />
-                {/* Quick Add Overlay */}
                 <div className="absolute inset-0 bg-ingwe-blue/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <button className="bg-white text-ingwe-blue font-black px-6 py-3 uppercase italic text-sm skew-x-[-10deg]">
+                  <button 
+                    onClick={() => addToCart(item)}
+                    className="bg-white text-ingwe-blue font-black px-6 py-3 uppercase italic text-sm skew-x-[-10deg] cursor-pointer"
+                  >
                     Add to Cart
                   </button>
                 </div>
               </div>
 
-              {/* Product Info */}
               <div className="p-8 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -118,6 +129,13 @@ export default function ShopPage() {
           </div>
         </div>
       </div>
+
+      {/* --- CART DRAWER RENDERING --- */}
+      <CartDrawer 
+        isOpen={isCartOpen} 
+        onClose={() => setIsCartOpen(false)} 
+        items={cartItems} 
+      />
     </div>
   );
 }

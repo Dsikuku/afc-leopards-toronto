@@ -1,9 +1,10 @@
 "use client";
 import { useState, useEffect } from 'react';
-import { Menu, X, MapPin, Clock } from 'lucide-react';
+import { Menu, X, MapPin, Clock, ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
 
-export default function Navbar() {
+// Added cartCount prop to the interface
+export default function Navbar({ cartCount = 0 }: { cartCount?: number }) {
   const [isOpen, setIsOpen] = useState(false);
   const [nairobiTime, setNairobiTime] = useState("");
   const [mounted, setMounted] = useState(false);
@@ -49,7 +50,7 @@ export default function Navbar() {
           
           {/* Desktop Menu */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-6">
+            <div className="ml-10 flex items-center space-x-6">
               {navItems.map((item) => (
                 <Link
                   key={item}
@@ -59,7 +60,17 @@ export default function Navbar() {
                   {item}
                 </Link>
               ))}
-              {/* Linked Join Button */}
+
+              {/* --- CART ICON --- */}
+              <div className="relative group px-2 cursor-pointer">
+                <ShoppingBag size={20} className="text-white group-hover:text-ingwe-blue transition-colors" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-white text-ingwe-blue text-[10px] font-black w-4 h-4 flex items-center justify-center rounded-full animate-bounce">
+                    {cartCount}
+                  </span>
+                )}
+              </div>
+              
               <Link href="/membership">
                 <button className="bg-[--color-ingwe-blue] text-white px-4 py-2 rounded-none skew-x-[-10deg] font-black uppercase text-sm hover:bg-white hover:text-black transition-all cursor-pointer">
                   Join The Pride
@@ -69,7 +80,16 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-4">
+            {/* Mobile Cart Icon */}
+            <div className="relative">
+              <ShoppingBag size={24} className="text-white" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-white text-ingwe-blue text-[10px] font-black w-4 h-4 flex items-center justify-center rounded-full">
+                  {cartCount}
+                </span>
+              )}
+            </div>
             <button 
               onClick={() => setIsOpen(!isOpen)} 
               className="text-white p-2"
@@ -95,7 +115,6 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="pt-4">
-            {/* Linked Join Button Mobile */}
             <Link href="/membership" onClick={() => setIsOpen(false)}>
               <button className="w-full bg-[--color-ingwe-blue] text-white py-4 font-black uppercase italic">
                 Join The Pride
