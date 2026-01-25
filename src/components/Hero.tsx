@@ -1,4 +1,5 @@
 import { ArrowRight, Trophy } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
@@ -22,12 +23,19 @@ export default function Hero() {
         </p>
         
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <button className="bg-ingwe-blue text-white font-black px-8 py-4 uppercase italic hover:bg-white hover:text-ingwe-blue transition-all skew-x-[-10deg] cursor-pointer">
-                Join the Den
-            </button>
-            <button className="border-2 border-white text-white font-black px-8 py-4 uppercase italic hover:border-ingwe-gold hover:text-ingwe-gold transition-all skew-x-[-10deg] cursor-pointer">
-                Match Schedule
-            </button>
+            {/* Primary CTA: Membership */}
+            <Link href="/membership">
+              <button className="bg-ingwe-blue text-white font-black px-8 py-4 uppercase italic hover:bg-white hover:text-ingwe-blue transition-all skew-x-[-10deg] cursor-pointer">
+                  Join the Den
+              </button>
+            </Link>
+
+            {/* Secondary CTA: Match Center */}
+            <Link href="/match-center">
+              <button className="border-2 border-white text-white font-black px-8 py-4 uppercase italic hover:border-ingwe-gold hover:text-ingwe-gold transition-all skew-x-[-10deg] cursor-pointer">
+                  Match Schedule
+              </button>
+            </Link>
         </div>
 
       </div>

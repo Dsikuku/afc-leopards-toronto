@@ -3,6 +3,7 @@ import MatchCard from "@/components/MatchCard";
 import TorontoDen from "@/components/TorontoDen";
 import Gallery from "@/components/Gallery";
 import Membership from "@/components/Membership";
+import LatestNews from '@/components/LatestNews';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
 
       {/* Gallery Section */}
       <Gallery />
+      <LatestNews />
       <Membership />
 
       {/* News / Community Section */}

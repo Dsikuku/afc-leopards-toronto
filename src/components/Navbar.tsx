@@ -8,6 +8,8 @@ export default function Navbar() {
   const [nairobiTime, setNairobiTime] = useState("");
   const [mounted, setMounted] = useState(false);
 
+  const navItems = ['Match Center', 'Tactics', 'Events', 'Membership', 'Gallery'];
+
   useEffect(() => {
     setMounted(true);
     const updateTime = () => {
@@ -32,7 +34,6 @@ export default function Navbar() {
         </div>
         <div className="flex items-center gap-2">
           <Clock size={12} /> 
-          {/* Only show time after mounting to prevent hydration errors */}
           Nairobi: {mounted ? `${nairobiTime} EAT` : "Loading..."}
         </div>
       </div>
@@ -49,7 +50,7 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-6">
-              {['Match Center', 'Events', 'Membership', 'Gallery'].map((item) => (
+              {navItems.map((item) => (
                 <Link
                   key={item}
                   href={`/${item.toLowerCase().replace(' ', '-')}`}
@@ -58,9 +59,12 @@ export default function Navbar() {
                   {item}
                 </Link>
               ))}
-              <button className="bg-[--color-ingwe-blue] text-white px-4 py-2 rounded-none skew-x-[-10deg] font-black uppercase text-sm hover:bg-white hover:text-black transition-all cursor-pointer">
-                Join The Pride
-              </button>
+              {/* Linked Join Button */}
+              <Link href="/membership">
+                <button className="bg-[--color-ingwe-blue] text-white px-4 py-2 rounded-none skew-x-[-10deg] font-black uppercase text-sm hover:bg-white hover:text-black transition-all cursor-pointer">
+                  Join The Pride
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -80,7 +84,7 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       {isOpen && (
         <div className="md:hidden bg-black border-t border-[--color-ingwe-blue] px-2 pt-2 pb-6 space-y-1 animate-in fade-in slide-in-from-top-4">
-          {['Match Center', 'Events', 'Membership', 'Gallery'].map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item}
               href={`/${item.toLowerCase().replace(' ', '-')}`}
@@ -91,9 +95,12 @@ export default function Navbar() {
             </Link>
           ))}
           <div className="pt-4">
-            <button className="w-full bg-[--color-ingwe-blue] text-white py-4 font-black uppercase italic">
-              Join The Pride
-            </button>
+            {/* Linked Join Button Mobile */}
+            <Link href="/membership" onClick={() => setIsOpen(false)}>
+              <button className="w-full bg-[--color-ingwe-blue] text-white py-4 font-black uppercase italic">
+                Join The Pride
+              </button>
+            </Link>
           </div>
         </div>
       )}
