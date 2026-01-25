@@ -1,6 +1,7 @@
 "use client";
 import { Calendar, MapPin, Clock, MessageCircle, ArrowRight, Camera } from 'lucide-react';
 import Link from 'next/link';
+import ContactForm from "@/components/ContactForm";
 
 const upcomingEvents = [
   {
@@ -68,6 +69,7 @@ export default function EventsPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 mt-12">
+        {/* UPPER GRID: Upcoming Events & Digital Den */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
           {/* --- MAIN EVENTS LIST --- */}
@@ -140,15 +142,28 @@ export default function EventsPage() {
             <div className="border border-white/10 p-8">
               <h4 className="font-black uppercase text-xs tracking-widest mb-6 text-gray-500">Venue Partners</h4>
               <div className="space-y-4 opacity-50 grayscale hover:grayscale-0 transition-all cursor-default">
-                <p className="text-xs font-black border-b border-white/5 pb-2">THE LOOSE MOOSE (DOWNTOWN)</p>
-                <p className="text-xs font-black border-b border-white/5 pb-2">JACK ASTOR'S (SCARBOROUGH)</p>
-                <p className="text-xs font-black border-b border-white/5 pb-2">EARLS (MERCER ST)</p>
+                <p className="text-xs font-black border-b border-white/5 pb-2 uppercase tracking-tighter">The Loose Moose (Downtown)</p>
+                <p className="text-xs font-black border-b border-white/5 pb-2 uppercase tracking-tighter">Jack Astor's (Scarborough)</p>
+                <p className="text-xs font-black border-b border-white/5 pb-2 uppercase tracking-tighter">Earls (Mercer St)</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* --- PAST EVENTS ARCHIVE --- */}
+        {/* --- CONTACT SECTION (FULL WIDTH) --- */}
+        <section className="mt-32 max-w-4xl mx-auto pb-12">
+            <div className="text-center mb-12">
+                <h3 className="text-4xl font-black italic tracking-tighter uppercase">
+                  Contact the <span className="text-ingwe-blue">Board</span>
+                </h3>
+                <p className="text-gray-500 font-bold uppercase text-[10px] tracking-widest mt-2">
+                  Strategic partnerships & chapter inquiries
+                </p>
+            </div>
+            <ContactForm />
+        </section>
+
+        {/* --- PAST EVENTS ARCHIVE (FULL WIDTH) --- */}
         <section className="mt-32 border-t border-white/5 pt-16">
           <div className="flex justify-between items-end mb-12">
             <div>
