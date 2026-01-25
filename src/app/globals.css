@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 10;
+}
+
+@theme {
+  /* The Primary Club Blue */
+  --color-ingwe-blue: #0056b3; 
+  /* Deep black for that "Den" atmosphere */
+  --color-ingwe-dark: #0a0a0a; 
+  /* Alternative Gold for Away/Third kit accents */
+  --color-ingwe-gold: #f48700; 
+  /* Concrete/Asphalt gray to represent Toronto streets */
+  --color-ingwe-concrete: #1a1a1a; 
+}
+
+body {
+  background-color: #0a0a0a;
+  color: white;
+}
+
+/* Sharp, aggressive headings */
+h1, h2, h3 {
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  font-style: italic;
+}
+
+h2 span {
+  color: var(--color-ingwe-blue);
+  text-shadow: 0 0 20px rgba(0, 86, 179, 0.4); /* Subtle blue glow */
+}
