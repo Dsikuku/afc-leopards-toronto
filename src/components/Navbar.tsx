@@ -8,7 +8,7 @@ export default function Navbar() {
   const [nairobiTime, setNairobiTime] = useState("");
   const [mounted, setMounted] = useState(false);
 
-  const navItems = ['Match Center', 'Tactics', 'Events', 'Membership', 'Gallery'];
+  const navItems = ['Match Center', 'Tactics', 'Events', 'Membership', 'Gallery', 'Shop'];
 
   useEffect(() => {
     setMounted(true);
