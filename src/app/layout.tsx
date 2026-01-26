@@ -5,7 +5,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer"
 import PageWrapper from "@/components/PageWrapper";
 import NewsletterModal from "@/components/NewsletterModal";
-import { CartProvider } from "@/context/CartContext"; // Add this
+import { CartProvider } from "@/context/CartContext"; 
+import SuccessToast from "@/components/SuccessToast";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });

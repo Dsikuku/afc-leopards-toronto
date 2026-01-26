@@ -16,6 +16,8 @@ interface CartContextType {
   cartCount: number;
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
+  showToast: boolean;
+  toastMessage: string;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -23,6 +25,8 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
 
   const addToCart = (item: CartItem) => {
     setCart((prev) => {
@@ -32,7 +36,17 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       return [...prev, item];
     });
-    setIsCartOpen(true); // Automatically open drawer when item is added
+
+    // --- TRIGGER TOAST ---
+    setToastMessage(`${item.name} added to your kit!`);
+    setShowToast(true);
+    
+    // Auto-hide toast after 3 seconds
+    setTimeout(() => {
+      setShowToast(false);
+    }, 3000);
+
+    setIsCartOpen(true); 
   };
 
   const removeFromCart = (id: number) => {
@@ -42,7 +56,16 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const cartCount = cart.reduce((acc, item) => acc + item.qty, 0);
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, cartCount, isCartOpen, setIsCartOpen }}>
+    <CartContext.Provider value={{ 
+      cart, 
+      addToCart, 
+      removeFromCart, 
+      cartCount, 
+      isCartOpen, 
+      setIsCartOpen,
+      showToast,      // Added to the Provider value
+      toastMessage    // Added to the Provider value
+    }}>
       {children}
     </CartContext.Provider>
   );
