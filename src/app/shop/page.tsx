@@ -1,7 +1,6 @@
 "use client";
-import { ShoppingBag, Tag, Star, ArrowRight, ShieldCheck } from 'lucide-react';
-import { useState } from 'react';
-import CartDrawer from '@/components/CartDrawer';
+import { ShoppingBag, Tag, Star, ShieldCheck } from 'lucide-react';
+import { useCart } from '@/context/CartContext'; // Ensure this path matches your file exactly
 
 const products = [
   {
@@ -34,13 +33,17 @@ const products = [
 ];
 
 export default function ShopPage() {
-  // --- STATE MOVED INSIDE COMPONENT ---
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState<any[]>([]);
+  // 1. Hook is now safely inside the function body
+  const { addToCart } = useCart();
 
-  const addToCart = (product: any) => {
-    setCartItems([...cartItems, product]);
-    setIsCartOpen(true);
+  const handleAddToCart = (item: any) => {
+    addToCart({
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      qty: 1,
+      size: item.category === "Apparel" ? "L" : "OS"
+    });
   };
 
   return (
@@ -72,16 +75,19 @@ export default function ShopPage() {
                   alt={item.name}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                 />
+                
+                {/* --- ADD TO CART BUTTON --- */}
                 <div className="absolute inset-0 bg-ingwe-blue/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <button 
-                    onClick={() => addToCart(item)}
-                    className="bg-white text-ingwe-blue font-black px-6 py-3 uppercase italic text-sm skew-x-[-10deg] cursor-pointer"
+                    onClick={() => handleAddToCart(item)}
+                    className="bg-white text-ingwe-blue font-black px-6 py-3 uppercase italic text-sm skew-x-[-10deg] hover:bg-black hover:text-white transition-all cursor-pointer"
                   >
-                    Add to Cart
+                    Add to Kit
                   </button>
                 </div>
               </div>
 
+              {/* Product Info */}
               <div className="p-8 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-4">
                   <div>
@@ -117,7 +123,7 @@ export default function ShopPage() {
             <Star className="text-ingwe-blue shrink-0" size={32} />
             <div>
               <h4 className="font-black uppercase italic">Chapter Exclusive</h4>
-              <p className="text-xs text-gray-500 mt-1 font-medium italic">Only available to Toronto Branch registered members.</p>
+              <p className="text-xs text-gray-500 mt-1 font-medium italic">Only available to Toronto Branch members.</p>
             </div>
           </div>
           <div className="flex gap-4">
@@ -129,13 +135,6 @@ export default function ShopPage() {
           </div>
         </div>
       </div>
-
-      {/* --- CART DRAWER RENDERING --- */}
-      <CartDrawer 
-        isOpen={isCartOpen} 
-        onClose={() => setIsCartOpen(false)} 
-        items={cartItems} 
-      />
     </div>
   );
 }

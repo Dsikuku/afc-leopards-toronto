@@ -1,97 +1,93 @@
 "use client";
-import { X, Trash2, ShoppingCart, ArrowRight } from 'lucide-react';
-
-// 1. Define the Interface clearly
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-}
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, ShoppingBag, ArrowRight, Trash2 } from 'lucide-react';
+import { useCart } from '@/context/CartContext'; // Import the hook
 
 interface CartDrawerProps {
   isOpen: boolean;
-  onClose: () => void; // This tells TS: "This is a function that returns nothing"
-  items: CartItem[];
+  onClose: () => void;
+  // cartCount removed from interface since we use context
 }
 
-// 2. Apply the interface to the component
-export default function CartDrawer({ isOpen, onClose, items }: CartDrawerProps) {
-  const total = items.reduce((sum, item) => sum + item.price, 0);
+export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
+  // Fetch real-time data from the "brain"
+  const { cart, cartCount, removeFromCart } = useCart();
+  
+  const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
 
   return (
-    <>
-      {/* Overlay - Click to close */}
+    <AnimatePresence>
       {isOpen && (
-        <div 
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] transition-opacity cursor-pointer"
-          onClick={onClose}
-        />
-      )}
-
-      {/* Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-full md:w-[400px] bg-ingwe-dark z-[70] shadow-2xl transform transition-transform duration-500 ease-in-out border-l border-ingwe-blue/20 ${
-        isOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}>
-        <div className="flex flex-col h-full">
+        <>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60]"
+          />
           
-          {/* Header */}
-          <div className="p-6 bg-ingwe-concrete border-b border-white/5 flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <ShoppingCart size={20} className="text-ingwe-blue" />
-              <h2 className="text-xl font-black italic uppercase">Your Locker</h2>
-            </div>
-            <button 
-              onClick={onClose} 
-              className="p-2 hover:bg-white/5 transition-colors cursor-pointer"
-              aria-label="Close cart"
-            >
-              <X size={24} />
-            </button>
-          </div>
-
-          {/* Items List */}
-          <div className="flex-grow overflow-y-auto p-6 space-y-6">
-            {items.length === 0 ? (
-              <div className="h-full flex flex-col items-center justify-center text-center opacity-20">
-                <ShoppingCart size={64} className="mb-4" />
-                <p className="font-black uppercase italic">Your locker is empty</p>
-              </div>
-            ) : (
-              items.map((item, index) => (
-                <div key={`${item.id}-${index}`} className="flex gap-4 group animate-in fade-in slide-in-from-right-4">
-                  <div className="w-20 h-20 bg-black overflow-hidden border border-white/5">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="flex-grow">
-                    <h4 className="font-black uppercase italic text-sm">{item.name}</h4>
-                    <p className="text-ingwe-blue font-black mt-1">${item.price.toFixed(2)}</p>
-                  </div>
-                  <button className="text-gray-500 hover:text-red-500 transition-colors cursor-pointer">
-                    <Trash2 size={18} />
-                  </button>
-                </div>
-              ))
-            )}
-          </div>
-
-          {/* Footer / Checkout */}
-          {items.length > 0 && (
-            <div className="p-6 bg-ingwe-concrete border-t border-white/5 space-y-4">
-              <div className="flex justify-between items-end">
-                <span className="text-gray-500 font-bold uppercase text-[10px] tracking-widest">Subtotal</span>
-                <span className="text-2xl font-black">${total.toFixed(2)}</span>
-              </div>
-              <button className="w-full bg-ingwe-blue text-white py-4 font-black uppercase italic tracking-widest skew-x-[-10deg] hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2 cursor-pointer">
-                Proceed to Checkout <ArrowRight size={18} />
+          <motion.div 
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            className="fixed right-0 top-0 h-full w-full max-w-md bg-ingwe-concrete z-[70] p-8 flex flex-col text-white shadow-2xl"
+          >
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-3xl font-black italic uppercase tracking-tighter">
+                YOUR <span className="text-ingwe-blue">KIT</span>
+              </h2>
+              <button onClick={onClose} className="p-2 hover:rotate-90 transition-transform">
+                <X size={28} />
               </button>
-              <p className="text-[9px] text-center text-gray-500 uppercase font-bold tracking-tighter">
-                Shipping calculated at next step • Member discounts applied
-              </p>
             </div>
-          )}
-        </div>
-      </div>
-    </>
+
+            <div className="flex-grow overflow-y-auto pr-2">
+              {cartCount === 0 ? (
+                <div className="h-full flex flex-col items-center justify-center opacity-20">
+                  <ShoppingBag size={80} strokeWidth={1} className="mb-4" />
+                  <p className="font-black uppercase italic">The bag is empty</p>
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  {cart.map((item) => (
+                    <div key={`${item.id}-${item.size}`} className="flex gap-4 bg-black/20 p-4 border border-white/5 relative">
+                      <div className="flex-grow">
+                        <div className="flex justify-between">
+                          <h4 className="font-black uppercase italic text-sm">{item.name}</h4>
+                          <button 
+                            onClick={() => removeFromCart(item.id)}
+                            className="text-gray-600 hover:text-red-500 transition-colors"
+                          >
+                            <Trash2 size={16} />
+                          </button>
+                        </div>
+                        <p className="text-[10px] font-bold text-gray-500 uppercase mt-1">Size: {item.size}</p>
+                        <div className="flex justify-between items-end mt-2">
+                          <span className="text-[10px] font-black px-2 py-1 bg-white/5 uppercase">QTY: {item.qty}</span>
+                          <span className="font-black text-ingwe-blue">${item.price * item.qty}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {cartCount > 0 && (
+              <div className="border-t border-white/10 pt-6 mt-6">
+                <div className="flex justify-between mb-6">
+                  <span className="text-xs font-black uppercase text-gray-400">Subtotal</span>
+                  <span className="text-2xl font-black italic">${subtotal.toFixed(2)}</span>
+                </div>
+                <button className="w-full bg-ingwe-blue text-white py-5 font-black uppercase italic flex items-center justify-center gap-3 skew-x-[-5deg] hover:bg-white hover:text-black transition-all">
+                  PROCEED TO CHECKOUT <ArrowRight size={20} />
+                </button>
+              </div>
+            )}
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
   );
 }
