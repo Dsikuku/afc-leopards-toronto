@@ -1,6 +1,7 @@
 "use client";
 import { useState } from 'react';
-import { ListOrdered, Users, TrendingUp, ShieldAlert, Target, MousePointer2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ListOrdered, Users, TrendingUp, ShieldAlert } from 'lucide-react';
 
 const standings = [
   { pos: 1, team: "Gor Mahia", p: 18, gd: "+15", pts: 40 },
@@ -52,8 +53,44 @@ export default function TacticsPage() {
 
       <div className="max-w-7xl mx-auto px-4 mt-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
         
-        {/* --- LEFT: STANDINGS (3 Columns) --- */}
-        <div className="lg:col-span-3 space-y-8">
+        {/* --- THE PITCH (Center on Desktop, First on Mobile) --- */}
+        <div className="order-1 lg:order-2 lg:col-span-6">
+          <div className="relative aspect-[2/3] md:aspect-[3/4] bg-[#1a2e1a] border-[4px] border-white/20 rounded-lg overflow-hidden shadow-2xl">
+            {/* Pitch Markings */}
+            <div className="absolute inset-0 border-2 border-white/10 m-4" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[15%] border-b-2 border-white/10" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-[15%] border-t-2 border-white/10" />
+            <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 border-2 border-white/10 rounded-full" />
+
+            {/* Players */}
+            {formation433.map((player, index) => (
+              <motion.div
+                key={`${player.pos}-${index}`}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.05 }}
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group z-10"
+                style={{ top: player.top, left: player.left }}
+                onClick={() => setSelectedPos(player.pos)}
+              >
+                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center font-black border-2 transition-all duration-300 ${
+                  selectedPos === player.pos 
+                    ? 'bg-ingwe-blue border-white scale-125 shadow-[0_0_20px_rgba(0,86,179,0.8)]' 
+                    : 'bg-black/80 border-ingwe-blue group-hover:border-white'
+                }`}>
+                  {player.pos}
+                </div>
+                <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-[9px] font-black uppercase tracking-tighter bg-black/80 px-2 py-0.5 rounded opacity-0 lg:group-hover:opacity-100 transition-opacity">
+                  {player.name}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* --- STANDINGS (Left on Desktop, Second on Mobile) --- */}
+        <div className="order-2 lg:order-1 lg:col-span-3 space-y-8">
           <div className="bg-ingwe-concrete p-6 border border-white/5">
             <h3 className="text-xl font-black italic uppercase mb-6 flex items-center gap-2">
               <ListOrdered size={20} className="text-ingwe-blue" /> FKF Premier League
@@ -83,46 +120,13 @@ export default function TacticsPage() {
           <div className="bg-ingwe-concrete p-6 border border-white/5">
              <h3 className="text-lg font-black italic uppercase mb-4 text-ingwe-blue">Philosophy</h3>
              <p className="text-xs text-gray-400 leading-relaxed italic uppercase font-bold">
-               High-intensity verticality. We control the half-spaces and exploit wide areas with overlapping fullbacks.
+                High-intensity verticality. We control the half-spaces and exploit wide areas with overlapping fullbacks.
              </p>
           </div>
         </div>
 
-        {/* --- CENTER: THE PITCH (6 Columns) --- */}
-        <div className="lg:col-span-6">
-          <div className="relative aspect-[2/3] md:aspect-[3/4] bg-[#1a2e1a] border-[4px] border-white/20 rounded-lg overflow-hidden shadow-2xl">
-            {/* Pitch Markings */}
-            <div className="absolute inset-0 border-2 border-white/10 m-4" />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[15%] border-b-2 border-white/10" />
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-[15%] border-t-2 border-white/10" />
-            <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/10" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-white/10 rounded-full" />
-
-            {/* Players */}
-            {formation433.map((player, index) => (
-                <div
-                    key={`${player.pos}-${index}`} // Fix: Combine position and index for a unique key
-                    className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group z-10"
-                    style={{ top: player.top, left: player.left }}
-                    onClick={() => setSelectedPos(player.pos)}
-                >
-                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center font-black border-2 transition-all duration-300 ${
-                    selectedPos === player.pos 
-                        ? 'bg-ingwe-blue border-white scale-125 shadow-[0_0_20px_rgba(0,86,179,0.8)]' 
-                        : 'bg-black/80 border-ingwe-blue group-hover:border-white'
-                    }`}>
-                    {player.pos}
-                    </div>
-                    <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap text-[9px] font-black uppercase tracking-tighter bg-black/80 px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                    {player.name}
-                    </span>
-                </div>
-                ))}
-          </div>
-        </div>
-
-        {/* --- RIGHT: SQUAD (3 Columns) --- */}
-        <div className="lg:col-span-3 space-y-6">
+        {/* --- SQUAD (Right on Desktop, Third on Mobile) --- */}
+        <div className="order-3 lg:col-span-3 space-y-6">
           <div className="bg-ingwe-concrete p-6 border border-white/5">
             <h3 className="text-xl font-black italic uppercase mb-6 flex items-center gap-2">
               <Users size={20} className="text-ingwe-blue" /> First Team
@@ -148,12 +152,16 @@ export default function TacticsPage() {
                <span className="text-[10px] font-black uppercase tracking-widest">Analysis</span>
              </div>
              {selectedPos ? (
-               <div className="animate-in fade-in slide-in-from-right-4">
+               <motion.div 
+                 initial={{ opacity: 0, x: 20 }}
+                 animate={{ opacity: 1, x: 0 }}
+                 key={selectedPos}
+               >
                  <p className="text-xs font-black uppercase text-white mb-2">{selectedPos} Role Detail</p>
                  <p className="text-xs italic text-gray-400 leading-relaxed">
-                   Key in the transition phase. Expected to maintain a high line and dictate the tempo of the counter-press.
+                    Key in the transition phase. Expected to maintain a high line and dictate the tempo of the counter-press.
                  </p>
-               </div>
+               </motion.div>
              ) : (
                <p className="text-xs italic text-gray-600">Select a player on the pitch to view role analysis.</p>
              )}

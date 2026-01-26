@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/globals.css"; // Note the @ symbol
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer"
+import PageWrapper from "@/components/PageWrapper";
+import NewsletterModal from "@/components/NewsletterModal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +30,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-ingwe-dark text-white selection:bg-ingwe-blue selection:text-white`}>
         <Navbar cartCount={0} />
-        <main className="pt-24 min-h-screen"> {/* pt-24 ensures content isn't hidden under the fixed nav */}
-        {children}
-        </main>
+        <NewsletterModal />
+        <PageWrapper>
+          <main className="pt-24 min-h-screen"> {/* pt-24 ensures content isn't hidden under the fixed nav */}
+            {children}
+          </main>
+        </PageWrapper>
         <Footer />
       </body>
     </html>

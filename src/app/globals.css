@@ -33,3 +33,19 @@ h2 span {
   color: var(--color-ingwe-blue);
   text-shadow: 0 0 20px rgba(0, 86, 179, 0.4); /* Subtle blue glow */
 }
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #0056b3; /* Ingwe Blue */
+    border-radius: 0px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #004494;
+  }
+}
