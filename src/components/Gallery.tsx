@@ -1,9 +1,10 @@
 export default function Gallery() {
   const images = [
-    { src: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1000", title: "Matchday Energy", size: "md:col-span-2 md:row-span-2" },
-    { src: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1000", title: "Toronto Fans", size: "col-span-1" },
-    { src: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1000", title: "The Kit", size: "col-span-1" },
-    { src: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1000", title: "Victory Celebration", size: "md:col-span-2" },
+    { src: "/images/Fans.jpeg", title: "Matchday Energy", size: "md:col-span-2 md:row-span-2" },
+    { src: "/images/vibes.jpg", title: "The vibes", size: "col-span-1" },
+    { src: "/images/Manu.jpeg", title: "The Kit", size: "col-span-1" },
+    { src: "/images/captain.jpg", title: "End Year Party", size: "col-span-1" },
+    { src: "/images/action.jpg", title: "our boys in action", size: "md:col-span-2" },
   ];
 
   return (

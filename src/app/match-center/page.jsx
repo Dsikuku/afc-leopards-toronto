@@ -5,9 +5,9 @@ import { Timer, MapPin, Tv, Shield, Activity, Info } from 'lucide-react';
 export default function MatchCenter() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
 
-  // Countdown logic for Feb 15, 2026
+  // Countdown logic for April 26, 2026
   useEffect(() => {
-    const target = new Date("February 15, 2026 08:00:00").getTime();
+    const target = new Date("April 26, 2026 08:00:00").getTime();
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = target - now;

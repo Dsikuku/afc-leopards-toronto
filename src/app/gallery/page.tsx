@@ -8,45 +8,45 @@ const galleryImages = [
   {
     id: 1,
     category: "Matchday",
-    title: "Derby Day in Toronto",
-    url: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=800",
+    title: "Tournament Vibes",
+    url: "/images/konki.jpeg",
     size: "large" // Takes up more space
   },
   {
     id: 2,
-    category: "Community",
-    title: "Summer BBQ 2025",
-    url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800",
+    category: "Matchday",
+    title: "Konki Tournament 2024",
+    url: "/images/Sub.jpeg",
     size: "small"
   },
   {
     id: 3,
-    category: "Matchday",
-    title: "The Loose Moose Takeover",
-    url: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=800",
-    size: "small"
+    category: "Gala",
+    title: "End of Year Party - 2025",
+    url: "/images/theboys.jpg",
+    size: "medium"
   },
   {
     id: 4,
-    category: "Gala",
-    title: "Founder's Dinner",
-    url: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800",
+    category: "Matchday",
+    title: "Scarborough Meetup",
+    url: "/images/team.jpg",
     size: "medium"
   },
   {
     id: 5,
-    category: "Community",
-    title: "Scarborough Meetup",
-    url: "https://images.unsplash.com/photo-1517457373958-b7bdd458ad20?q=80&w=800",
-    size: "medium"
-  },
-  {
-    id: 6,
     category: "Matchday",
     title: "Limuru to Liberty Village",
     url: "https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?q=80&w=800",
     size: "large"
-  }
+  },
+  {
+    id: 6,
+    category: "Gala",
+    title: "End of Year Party - 2025",
+    url: "/images/chairman.jpg",
+    size: "medium"
+  },
 ];
 
 export default function GalleryPage() {
