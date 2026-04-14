@@ -39,7 +39,7 @@ export default function MatchCard() {
       <div className="mt-6 space-y-2">
         <div className="flex justify-between items-center text-sm">
           <span className="text-gray-400 font-bold uppercase">Toronto Time</span>
-          <span className="font-black text-lg">SAT, JAN 31 @ 7:00 AM</span>
+          <span className="font-black text-lg">SUN, APR 26 @ 8:00 AM</span>
         </div>
         <div className="flex items-center gap-2 text-xs text-gray-500 italic">
           <MapPin size={12} /> {matchDetails.stadium}

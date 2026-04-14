@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Gallery() {
   const images = [
     { src: "/images/Fans.jpeg", title: "Matchday Energy", size: "md:col-span-2 md:row-span-2" },
@@ -52,9 +54,11 @@ export default function Gallery() {
         </div>
 
         <div className="mt-12 text-center">
-          <button className="border-2 border-ingwe-blue text-white font-black px-12 py-4 uppercase tracking-widest hover:bg-ingwe-blue transition-all skew-x-[-10deg] cursor-pointer">
-            View Full Archive
-          </button>
+          <Link href="/gallery">
+             <button className="border-2 border-ingwe-blue text-white font-black px-12 py-4 uppercase tracking-widest hover:bg-ingwe-blue transition-all skew-x-[-10deg] cursor-pointer">
+              View Full Archive
+            </button>
+          </Link>
         </div>
       </div>
 
