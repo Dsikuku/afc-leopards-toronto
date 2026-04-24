@@ -1,65 +1,103 @@
-import Hero from "@/components/Hero";
-import MatchCard from "@/components/MatchCard";
-import TorontoDen from "@/components/TorontoDen";
-import Gallery from "@/components/Gallery";
-import Membership from "@/components/Membership";
-import LatestNews from '@/components/LatestNews';
+"use client";
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { Trophy, ArrowRight, Shield } from 'lucide-react';
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <>
-      {/* Hero Section - The big "Stadium" entrance */}
-      <Hero />
+    <main className="relative h-screen w-full overflow-hidden flex flex-col md:flex-row bg-black">
       
-      {/* Match Center - Overlapping the Hero for that professional look */}
-      <section className="relative -mt-16 z-30 max-w-4xl mx-auto px-4">
-        <MatchCard />
-      </section>
+      {/* --- SECTION 1: THE HERITAGE (AFC LEOPARDS) --- */}
+      {/* We add 'bg-ingwe-blue' here to provide the base for the blend mode */}
+      <motion.div 
+        whileHover={{ flex: 1.6 }} // Increased flex for more dramatic expansion
+        className="relative flex-1 group border-r border-white/5 overflow-hidden transition-all duration-[700ms] ease-out bg-ingwe-blue"
+      >
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/images/afc-leopards.png" 
+            alt="Heritage"
+            // KEY VISUAL EFFECT: mix-blend-multiply + grayscale. 
+            // The multiply mode applies the image as a filter over the blue background.
+            className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply group-hover:scale-110 group-hover:opacity-100 transition-all duration-[1000ms] ease-in-out"
+          />
+          {/* A gradient overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-ingwe-blue/20 to-transparent" />
+        </div>
 
-      {/* Toronto Den Section */}
-      <TorontoDen />
-
-      {/* Gallery Section */}
-      <Gallery />
-      <LatestNews />
-      <Membership />
-
-      {/* News / Community Section */}
-      <section className="py-24 px-4 max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-          <div>
-            <h2 className="text-5xl font-black italic tracking-tighter">
-              LATEST <span className="text-ingwe-blue">NEWS</span>
-            </h2>
-            <p className="text-gray-400 font-bold uppercase tracking-widest text-sm mt-2">
-              Inside the Den: Toronto Edition
+        {/* Content Container */}
+        <div className="relative z-10 h-full flex flex-col justify-center p-12 md:p-20">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <Shield className="text-white/80 mb-6 drop-shadow-lg" size={56} strokeWidth={1.5}/>
+            <h2 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none mb-6 text-glow-white">
+              The <span className="text-white">Heritage</span>
+            </h2 >
+            <p className="max-w-md text-gray-200 font-medium italic mb-12 uppercase text-sm tracking-widest leading-relaxed drop-shadow-sm">
+              Connecting the Toronto pride to the legendary roots of AFC Leopards Kenya. History, Membership, and the 1964 Legacy.
             </p>
-          </div>
-          <button className="text-ingwe-blue font-black uppercase text-sm border-b-2 border-ingwe-blue pb-1 hover:text-white hover:border-white transition-all">
-            View All Updates
-          </button>
+            <Link href="/heritage">
+              <button className="flex items-center gap-4 bg-white text-black px-10 py-5 font-black uppercase italic skew-x-[-10deg] hover:bg-black hover:text-white transition-all group/btn shadow-xl text-lg">
+                Explore History <ArrowRight className="group-hover/btn:translate-x-2 transition-transform" />
+              </button>
+            </Link>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* --- SECTION 2: THE SQUAD (TORONTO LOCAL) --- */}
+      {/* We use a slightly darker blue/concrete base here to differentiate the vibe slightly */}
+      <motion.div 
+        whileHover={{ flex: 1.6 }}
+        className="relative flex-1 group overflow-hidden transition-all duration-[700ms] ease-out bg-ingwe-dark"
+      >
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/images/ingwe-toronto.jpeg" 
+            alt="Local Squad"
+            // The same visual effect, optimized for this section
+            className="w-full h-full object-cover grayscale opacity-70 mix-blend-multiply group-hover:scale-110 group-hover:opacity-100 transition-all duration-[1000ms] ease-in-out"
+          />
+          {/* Subtle gradient to anchor the text */}
+          <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/20 to-transparent" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Placeholder for News Cards */}
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="group cursor-pointer">
-              <div className="h-48 bg-ingwe-concrete mb-4 overflow-hidden relative">
-                <div className="absolute inset-0 bg-ingwe-blue/20 group-hover:bg-transparent transition-colors" />
-                <div className="absolute bottom-0 left-0 bg-ingwe-blue text-white text-[10px] font-bold px-2 py-1 uppercase italic">
-                  Match Report
-                </div>
-              </div>
-              <h3 className="text-xl font-bold leading-tight group-hover:text-ingwe-blue transition-colors">
-                Ingwe Toronto Hosts Spectacular Derby Watch Party
-              </h3>
-              <p className="text-gray-500 text-sm mt-2 line-clamp-2 italic">
-                Hundreds of fans gathered in downtown Toronto to witness the clash...
-              </p>
-            </div>
-          ))}
+        {/* Content Container */}
+        <div className="relative z-10 h-full flex flex-col justify-center items-end text-right p-12 md:p-20">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <Trophy className="text-ingwe-blue mb-6 drop-shadow-[0_0_15px_rgba(0,102,255,0.8)]" size={56} strokeWidth={1.5} />
+            <h2 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none mb-6 text-glow-blue">
+              The <span className="text-ingwe-blue ">Movement</span>
+            </h2>
+            <p className="max-w-md text-gray-300 font-medium italic mb-12 uppercase text-sm tracking-widest leading-relaxed drop-shadow-sm">
+              Our local warriors taking on the Toronto leagues. Matchdays, Standings, and the Current Squad.
+            </p>
+            <Link href="/squad">
+              <button className="flex items-center gap-4 bg-ingwe-blue text-white px-10 py-5 font-black uppercase italic skew-x-[-10deg] hover:bg-white hover:text-black transition-all group/btn shadow-xl text-lg">
+                <ArrowRight className="rotate-180 group-hover/btn:-translate-x-2 transition-transform" /> View The Squad
+              </button>
+            </Link>
+          </motion.div>
         </div>
-      </section>
-    </>
+      </motion.div>
+
+      {/* --- CENTRAL LOGO OVERLAY --- */}
+      {/* Increased prominence and better glowing effect */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none hidden md:block">
+        <div className="bg-black border-[3px] border-ingwe-blue p-5 rotate-45 shadow-[0_0_60px_rgba(0,102,255,0.4)]">
+          <div className="-rotate-45 font-black text-3xl italic tracking-tighter text-white">
+            INGWE<span className="text-ingwe-blue text-glow-blue">TO</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
   );
 }
