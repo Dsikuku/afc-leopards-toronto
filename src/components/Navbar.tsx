@@ -6,15 +6,14 @@ import Link from 'next/link';
 import CartDrawer from './CartDrawer';
 
 export default function Navbar() {
-  // 1. Get global state from context - This is the "Brain"
   const { cartCount, isCartOpen, setIsCartOpen } = useCart();
   
-  // 2. Local state only for the mobile menu toggle
   const [isOpen, setIsOpen] = useState(false); 
   const [nairobiTime, setNairobiTime] = useState("");
   const [mounted, setMounted] = useState(false);
 
-  const navItems = ['Match Center', 'Tactics', 'Events', 'Membership', 'Gallery', 'Shop'];
+  // Cleaned up navigation items
+  const navItems = ['Heritage', 'Squad', 'Gallery', 'Shop'];
 
   useEffect(() => {
     setMounted(true);
@@ -60,7 +59,7 @@ export default function Navbar() {
                 {navItems.map((item) => (
                   <Link
                     key={item}
-                    href={`/${item.toLowerCase().replace(' ', '-')}`}
+                    href={`/${item.toLowerCase()}`}
                     className="text-gray-300 hover:text-[--color-ingwe-blue] px-3 py-2 rounded-md text-sm font-bold uppercase transition-colors"
                   >
                     {item}
@@ -80,7 +79,8 @@ export default function Navbar() {
                   )}
                 </button>
                 
-                <Link href="/membership">
+                {/* Redirected to Squad page anchor */}
+                <Link href="/squad#join">
                   <button className="bg-[--color-ingwe-blue] text-white px-4 py-2 rounded-none skew-x-[-10deg] font-black uppercase text-sm hover:bg-white hover:text-black transition-all cursor-pointer">
                     Join The Pride
                   </button>
@@ -118,18 +118,25 @@ export default function Navbar() {
             {navItems.map((item) => (
               <Link
                 key={item}
-                href={`/${item.toLowerCase().replace(' ', '-')}`}
+                href={`/${item.toLowerCase()}`}
                 className="text-white block px-3 py-4 text-lg font-black uppercase border-b border-white/5"
                 onClick={() => setIsOpen(false)}
               >
                 {item}
               </Link>
             ))}
+            {/* Mobile Join Button */}
+            <Link 
+              href="/squad#join" 
+              className="text-ingwe-blue block px-3 py-4 text-lg font-black uppercase"
+              onClick={() => setIsOpen(false)}
+            >
+              Join The Pride
+            </Link>
           </div>
         )}
       </nav>
 
-      {/* --- CART DRAWER COMPONENT --- */}
       <CartDrawer 
         isOpen={isCartOpen} 
         onClose={() => setIsCartOpen(false)} 

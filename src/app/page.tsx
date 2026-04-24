@@ -34,7 +34,7 @@ export default function LandingPage() {
           >
             <Shield className="text-white/80 mb-6 drop-shadow-lg" size={56} strokeWidth={1.5}/>
             <h2 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none mb-6 text-glow-white">
-              The <span className="text-white">Heritage</span>
+              AFC LEOPARDS <span className="text-white">TORONTO BRANCH</span>
             </h2 >
             <p className="max-w-md text-gray-200 font-medium italic mb-12 uppercase text-sm tracking-widest leading-relaxed drop-shadow-sm">
               Connecting the Toronto pride to the legendary roots of AFC Leopards Kenya. History, Membership, and the 1964 Legacy.
@@ -74,7 +74,7 @@ export default function LandingPage() {
           >
             <Trophy className="text-ingwe-blue mb-6 drop-shadow-[0_0_15px_rgba(0,102,255,0.8)]" size={56} strokeWidth={1.5} />
             <h2 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none mb-6 text-glow-blue">
-              The <span className="text-ingwe-blue ">Movement</span>
+              INGWE <span className="text-ingwe-blue ">TORONTO FC</span>
             </h2>
             <p className="max-w-md text-gray-300 font-medium italic mb-12 uppercase text-sm tracking-widest leading-relaxed drop-shadow-sm">
               Our local warriors taking on the Toronto leagues. Matchdays, Standings, and the Current Squad.

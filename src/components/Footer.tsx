@@ -33,8 +33,8 @@ export default function Footer() {
             <h4 className="font-black uppercase text-sm tracking-widest mb-6 text-ingwe-blue">Navigation</h4>
             <ul className="space-y-4 text-gray-400 font-bold uppercase text-xs">
               <li><Link href="/match-center" className="hover:text-white transition-colors">Match Center</Link></li>
-              <li><Link href="/tactics" className="hover:text-white transition-colors">Tactics Board</Link></li>
-              <li><Link href="/membership" className="hover:text-white transition-colors">Membership</Link></li>
+              <li><Link href="/heritage" className="hover:text-white transition-colors">The Heritage</Link></li>
+              <li><Link href="/squad" className="hover:text-white transition-colors">The Squad</Link></li>
               <li><Link href="/gallery" className="hover:text-white transition-colors">The Lens (Gallery)</Link></li>
               <li><Link href="/shop" className="hover:text-white transition-colors flex items-center gap-2">
                 Fan Shop <span className="bg-ingwe-blue text-[8px] px-1 animate-pulse">New</span>
