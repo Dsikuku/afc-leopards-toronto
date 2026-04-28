@@ -186,7 +186,7 @@ export default function LandingPage() {
             { label: "Founded", value: "2024" },
             { label: "Active Members", value: "50+" },
             { label: "Trophies", value: "2" },
-            { label: "Next Match", value: "Sunday 2PM" },
+            { label: "Next Match", value: "TBA" },
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <p className="text-black/60 font-black uppercase text-[10px] tracking-widest">{stat.label}</p>
@@ -301,8 +301,8 @@ export default function LandingPage() {
                   <span className="bg-black text-white px-4 py-1 text-[10px] font-black uppercase tracking-tighter">Next Matchday</span>
                   <span className="text-right font-black italic uppercase text-sm">Toronto, ON</span>
                 </div>
-                <h4 className="text-5xl font-black italic uppercase tracking-tighter mb-2">Ingwe TO <span className="text-ingwe-blue">vs</span> GTA Select</h4>
-                <p className="font-bold uppercase text-[10px] tracking-widest text-gray-500">Sunday, June 14 • Centennial Park Stadium</p>
+                <h4 className="text-5xl font-black italic uppercase tracking-tighter mb-2">Ingwe Toronto FC <span className="text-ingwe-blue">vs</span> Nile FC</h4>
+                <p className="font-bold uppercase text-[10px] tracking-widest text-gray-500">Date: TBD • Centennial Park Stadium</p>
               </div>
               
               <button className="w-full mt-8 bg-black text-white py-4 font-black uppercase italic hover:bg-ingwe-blue transition-colors">
@@ -323,7 +323,7 @@ export default function LandingPage() {
         >
           {[...Array(10)].map((_, i) => (
             <span key={i} className="text-black font-black italic uppercase text-2xl mx-12">
-              Ours Forever • Ingwe Toronto • More Than A Club • Since 1964 • The 6ix Pride • 
+              Ours Forever • Ingwe Toronto • More Than A Club • Since 1964 • Ingwe Le Notre Pour Toujours • 
             </span>
           ))}
         </motion.div>

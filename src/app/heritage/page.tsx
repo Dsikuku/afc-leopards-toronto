@@ -89,7 +89,7 @@ export default function HeritagePage() {
               <History size={16} /> The Den's Global Footprint
             </div>
             <h1 className="text-7xl md:text-9xl font-black italic tracking-tighter uppercase leading-none mb-8">
-              THE <span className="text-ingwe-blue text-glow">HERITAGE</span>
+              AFC LEOPARDS <span className="text-ingwe-blue text-glow">TORONTO BRANCH</span>
             </h1>
             <a 
               href="https://www.afcleopards.co.ke" 
@@ -110,11 +110,11 @@ export default function HeritagePage() {
           <section>
             <div className="flex items-center gap-4 mb-6">
               <Shield className="text-ingwe-blue" size={32} />
-              <h2 className="text-4xl font-black italic uppercase">The Mother Club</h2>
+              <h2 className="text-4xl font-black italic uppercase">Ingwe Ours Forever</h2>
             </div>
             <div className="border-l-2 border-ingwe-blue pl-6">
               <p className="text-xl text-gray-300 leading-relaxed font-medium italic">
-                Founded in 1964, <span className="text-white font-bold underline decoration-ingwe-blue underline-offset-4">AFC Leopards SC</span> stands as a titan of East African football. Known affectionately as <span className="text-ingwe-blue">"Ingwe"</span>.
+                Founded in 1964, <span className="text-white font-bold underline decoration-ingwe-blue underline-offset-4">AFC Leopards SC</span> stands as a titan of East African football. Known affectionately as <span className="text-ingwe-blue">"Ingwe"</span>. We play most of our home games at the Nyayo Stadium and have won 23 major titles:
               </p>
             </div>
           </section>
@@ -128,9 +128,8 @@ export default function HeritagePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
                 { title: "League Titles", count: "12", color: "border-ingwe-blue" },
-                { title: "FKF Cups", count: "10", color: "border-white" },
-                { title: "CECAFA Club", count: "5", color: "border-ingwe-blue" },
-                { title: "Shield Wins", count: "9", color: "border-white" },
+                { title: "National Cup Titles", count: "6", color: "border-white" },
+                { title: "CECAFA Club", count: "5", color: "border-ingwe-blue" }
               ].map((trophy, i) => (
                 <div key={i} className={`bg-ingwe-concrete p-6 border-t-4 ${trophy.color} text-center shadow-xl`}>
                   <p className="text-4xl font-black italic mb-1">{trophy.count}</p>
@@ -144,14 +143,14 @@ export default function HeritagePage() {
           <section className="bg-ingwe-concrete/30 p-8 border border-white/5 relative overflow-hidden">
             <div className="flex items-center gap-4 mb-6">
               <Users className="text-ingwe-blue" size={28} />
-              <h2 className="text-3xl font-black italic uppercase">The Toronto Genesis</h2>
+              <h2 className="text-3xl font-black italic uppercase">Our Branch</h2>
             </div>
             <p className="text-lg text-gray-300 leading-relaxed italic font-medium relative z-10">
-              Born out of a desire to unite the Kenyan diaspora through the spirit of football.
+              Born out of a desire to unite the Kenyan diaspora through the spirit of football. we aim to create a space where you connect with fellow fans and cheer on our team.
             </p>
             <div className="flex flex-wrap gap-12 mt-8">
               <div>
-                <p className="text-5xl font-black italic text-ingwe-blue">250+</p>
+                <p className="text-5xl font-black italic text-ingwe-blue">50+</p>
                 <p className="text-xs uppercase font-black text-gray-500">Active Members</p>
               </div>
               <div>
@@ -236,11 +235,11 @@ export default function HeritagePage() {
 
             <div className="space-y-6">
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 border-b border-white/10 pb-2">Latest Results</h3>
-              <MatchCard teamA="AFC Leopards" teamB="Gor Mahia" scoreA="2" scoreB="1" date="April 18, 2026" location="Nyayo Stadium" isFinished={true} />
-              <MatchCard teamA="Posta Rangers" teamB="AFC Leopards" scoreA="0" scoreB="0" date="April 12, 2026" location="Kasarani Annex" isFinished={true} />
+              <MatchCard teamA="AFC Leopards" teamB="Gor Mahia" scoreA="0" scoreB="1" date="April 26, 2026" location="Nyayo Stadium" isFinished={true} />
+              <MatchCard teamA="AFC Leopards" teamB="Kenya Police" scoreA="0" scoreB="3" date="April 12, 2026" location="Kasarani Annex" isFinished={true} />
 
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 border-b border-white/10 pb-2 mt-10">Upcoming Fixture</h3>
-              <MatchCard teamA="AFC Leopards" teamB="Bandari FC" date="April 27, 2026" location="Nyayo Stadium" isFinished={false} />
+              <MatchCard teamA="Ulinzin Stars" teamB="AFC Leopards" date="May 02, 2026" location="Ulinzi Sports Complex" isFinished={false} />
             </div>
           </div>
         </aside>

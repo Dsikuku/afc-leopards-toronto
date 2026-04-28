@@ -70,7 +70,7 @@ export default function SquadPage() {
               <Flame size={16} className="text-orange-500" /> Toronto Local Chapter
             </div>
             <h1 className="text-7xl md:text-9xl font-black italic tracking-tighter uppercase leading-none mb-8">
-              THE <span className="text-white text-glow-white">MOVEMENT</span>
+              INGWE <span className="text-white text-glow-white">TORONTO FC</span>
             </h1>
             <p className="max-w-2xl text-xl text-gray-400 font-medium italic uppercase tracking-tight">
               Representing the Pride in the 6ix. From local league dominance to community tournaments, we carry the Ingwe name on every pitch.
@@ -99,12 +99,12 @@ export default function SquadPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-ingwe-concrete p-8 border-b-4 border-ingwe-blue group hover:bg-ingwe-blue transition-colors duration-500">
-                <h3 className="text-2xl font-black italic uppercase mb-2 group-hover:text-white">Toronto African Cup</h3>
+                <h3 className="text-2xl font-black italic uppercase mb-2 group-hover:text-white">Pamoja Tournament</h3>
                 <p className="text-sm text-gray-400 group-hover:text-white/80">Regular participants and 2023 Semi-Finalists.</p>
               </div>
               <div className="bg-ingwe-concrete p-8 border-b-4 border-white group hover:bg-white transition-colors duration-500">
-                <h3 className="text-2xl font-black italic uppercase mb-2 group-hover:text-black text-white">Sunday League Premier</h3>
-                <p className="text-sm text-gray-400 group-hover:text-black/80">Currently competing in the top flight of Toronto's community leagues.</p>
+                <h3 className="text-2xl font-black italic uppercase mb-2 group-hover:text-black text-white">Konki Tournament 2025</h3>
+                <p className="text-sm text-gray-400 group-hover:text-black/80">Regular participants in the annual Konki Tournament.</p>
               </div>
             </div>
           </section>
