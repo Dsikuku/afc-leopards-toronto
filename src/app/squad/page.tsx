@@ -73,7 +73,7 @@ export default function SquadPage() {
               INGWE <span className="text-white text-glow-white">TORONTO FC</span>
             </h1>
             <p className="max-w-2xl text-xl text-gray-400 font-medium italic uppercase tracking-tight">
-              Representing the Pride in the 6ix. From local league dominance to community tournaments, we carry the Ingwe name on every pitch.
+              Representing the Pride in the Toronto. From local league dominance to community tournaments, we carry the Ingwe name on every pitch.
             </p>
           </motion.div>
         </div>

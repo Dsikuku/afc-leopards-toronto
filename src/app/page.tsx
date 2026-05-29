@@ -53,7 +53,7 @@ function FAQSection() {
             </h2>
           </div>
           <p className="text-gray-500 font-bold uppercase text-[10px] tracking-widest md:text-right">
-            Everything you need to know <br /> about the Toronto pride.
+            Everything you need to know <br /> about the AFC Leopards Toronto Branch.
           </p>
         </div>
 
@@ -169,14 +169,31 @@ export default function LandingPage() {
           </div>
         </motion.div>
 
-        {/* CENTRAL LOGO */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none hidden md:block">
-          <div className="bg-black border-[3px] border-ingwe-blue p-5 rotate-45 shadow-[0_0_60px_rgba(0,102,255,0.4)]">
-            <div className="-rotate-45 font-black text-3xl italic tracking-tighter text-white">
-              INGWE<span className="text-ingwe-blue text-glow-blue">TO</span>
-            </div>
+      {/* --- CENTRAL ICON OVERLAY (ELLIPSE PORTAL IMAGE COVER) --- */}
+      <div className="absolute bottom-30 left-1/2 -translate-x-1/2 z-40 pointer-events-none hidden md:flex items-center justify-center">
+        
+        {/* The Ellipse Portal */}
+        <div className="bg-black border-[3px] border-ingwe-blue w-28 h-36 rounded-full shadow-[0_0_50px_rgba(0,102,255,0.4)] overflow-hidden flex items-center justify-center relative">
+          
+          {/* Inside Layer: Image mapped to cover the entire canvas area */}
+          <div className="w-full h-full">
+            <img 
+              src="/images/leopard.jpg" 
+              alt="Ingwe Pride"
+              className="w-full h-full object-cover brightness-110 contrast-125"
+            />
           </div>
+
+          {/* Small floating text badge embedded inside */}
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap z-50">
+            <span className="text-white font-black italic uppercase text-[8px] tracking-[0.3em] bg-black px-2 py-0.5 border border-white/5 rounded-full">
+              EST. 1964
+            </span>
+          </div>
+
         </div>
+      </div>
+
       </main>
 
       {/* 2. THE PULSE: IMPACT STATS */}
