@@ -164,6 +164,147 @@ export default function HeritagePage() {
             </div>
           </section>
 
+          {/* --- BRAND LEADERSHIP & EXECUTIVE TRUST --- */}
+          <section className="py-32 px-6 bg-black border-t border-white/5 relative z-30">
+            <div className="max-w-7xl mx-auto">
+              
+              {/* Section Header */}
+              <div className="mb-20 max-w-2xl">
+                <span className="text-ingwe-blue font-black uppercase text-[10px] tracking-[0.4em] block mb-2">
+                  // EXECUTIVE STRUCTURE
+                </span>
+                <h2 className="text-5xl font-black italic uppercase tracking-tighter">
+                  Stewards of <br />
+                  <span className="text-white">The Toronto Den</span>
+                </h2>
+                <p className="text-gray-400 font-medium text-sm leading-relaxed mt-4">
+                  Guiding the synchronization of sporting culture, community mobilization, and official commercial partnerships between East Africa and the Canadian diaspora landscape.
+                </p>
+              </div>
+
+              {/* Leaders Grid Layout (4-Column Matrix) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 bg-white/5 border border-white/5">
+                
+                {/* Leader 1: President */}
+                <div className="group relative bg-white/[0.01] p-6 flex flex-col justify-between items-start overflow-hidden min-h-[440px]">
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-500 pointer-events-none font-black text-[90px] uppercase italic tracking-tighter -mr-4 -mt-6 text-white select-none">
+                    01
+                  </div>
+                  <div className="w-24 h-32 bg-zinc-900 border border-white/10 overflow-hidden relative mb-8 skew-x-[-4deg] group-hover:border-ingwe-blue transition-colors duration-500">
+                    <img 
+                      src="/images/leadership/AFCToronto.jpg" 
+                      alt="Gabriel Werunga Profile"
+                      className="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    />
+                  </div>
+                  <div className="w-full">
+                    <span className="text-ingwe-blue font-black uppercase text-[9px] tracking-widest block mb-1">
+                      Branch President
+                    </span>
+                    <h3 className="text-xl font-black uppercase tracking-tight text-white mb-3 min-h-[56px] flex items-end">
+                      Gabriel Werunga
+                    </h3>
+                    <p className="text-gray-400 font-medium text-xs leading-relaxed mb-6">
+                      Directing global brand alignment, branch security, and long-term infrastructure scaling across the Canadian network.
+                    </p>
+                    <div className="border-t border-white/10 pt-4 flex justify-between text-[10px] font-bold tracking-wider uppercase text-gray-500">
+                      <span>Executive Board</span>
+                      <a href="mailto:afcleopards@ingwetoronto.com" className="text-white/40 hover:text-ingwe-blue transition-colors">Brief ↗</a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Leader 2: Vice President */}
+                <div className="group relative bg-white/[0.01] p-6 flex flex-col justify-between items-start overflow-hidden min-h-[440px]">
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-500 pointer-events-none font-black text-[90px] uppercase italic tracking-tighter -mr-4 -mt-6 text-white select-none">
+                    02
+                  </div>
+                  <div className="w-24 h-32 bg-zinc-900 border border-white/10 overflow-hidden relative mb-8 skew-x-[-4deg] group-hover:border-ingwe-blue transition-colors duration-500">
+                    <img 
+                      src="/images/leadership/AFCToronto.jpg" 
+                      alt="Ken Simiyu Profile"
+                      className="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    />
+                  </div>
+                  <div className="w-full">
+                    <span className="text-ingwe-blue font-black uppercase text-[9px] tracking-widest block mb-1">
+                      Vice President
+                    </span>
+                    <h3 className="text-xl font-black uppercase tracking-tight text-white mb-3 min-h-[56px] flex items-end">
+                      Ken Simiyu
+                    </h3>
+                    <p className="text-gray-400 font-medium text-xs leading-relaxed mb-6">
+                      Spearheading member mobilization, local community operations, and diaspora engagement vectors inside Ontario.
+                    </p>
+                    <div className="border-t border-white/10 pt-4 flex justify-between text-[10px] font-bold tracking-wider uppercase text-gray-500">
+                      <span>Executive Board</span>
+                      <a href="mailto:afcleopards@ingwetoronto.com" className="text-white/40 hover:text-ingwe-blue transition-colors">Contact ↗</a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Leader 3: Secretary */}
+                <div className="group relative bg-white/[0.01] p-6 flex flex-col justify-between items-start overflow-hidden min-h-[440px]">
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-500 pointer-events-none font-black text-[90px] uppercase italic tracking-tighter -mr-4 -mt-6 text-white select-none">
+                    03
+                  </div>
+                  <div className="w-24 h-32 bg-zinc-900 border border-white/10 overflow-hidden relative mb-8 skew-x-[-4deg] group-hover:border-ingwe-blue transition-colors duration-500">
+                    <img 
+                      src="/images/leadership/AFCToronto.jpg" 
+                      alt="Khwaka Kukubo Profile"
+                      className="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    />
+                  </div>
+                  <div className="w-full">
+                    <span className="text-ingwe-blue font-black uppercase text-[9px] tracking-widest block mb-1">
+                      General Secretary
+                    </span>
+                    <h3 className="text-xl font-black uppercase tracking-tight text-white mb-3 min-h-[56px] flex items-end">
+                      Khwaka Kukubo
+                    </h3>
+                    <p className="text-gray-400 font-medium text-xs leading-relaxed mb-6">
+                      Managing inter-club communications, registry pipelines, official agendas, and administrative compliance.
+                    </p>
+                    <div className="border-t border-white/10 pt-4 flex justify-between text-[10px] font-bold tracking-wider uppercase text-gray-500">
+                      <span>Operations</span>
+                      <a href="mailto:afcleopards@ingwetoronto.com" className="text-white/40 hover:text-ingwe-blue transition-colors">Records ↗</a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Leader 4: Treasurer */}
+                <div className="group relative bg-white/[0.01] p-6 flex flex-col justify-between items-start overflow-hidden min-h-[440px]">
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity duration-500 pointer-events-none font-black text-[90px] uppercase italic tracking-tighter -mr-4 -mt-6 text-white select-none">
+                    04
+                  </div>
+                  <div className="w-24 h-32 bg-zinc-900 border border-white/10 overflow-hidden relative mb-8 skew-x-[-4deg] group-hover:border-ingwe-blue transition-colors duration-500">
+                    <img 
+                      src="/images/leadership/AFCToronto.jpg" 
+                      alt="Silas Wanjala Profile"
+                      className="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    />
+                  </div>
+                  <div className="w-full">
+                    <span className="text-ingwe-blue font-black uppercase text-[9px] tracking-widest block mb-1">
+                      Branch Treasurer
+                    </span>
+                    <h3 className="text-xl font-black uppercase tracking-tight text-white mb-3 min-h-[56px] flex items-end">
+                      Silas Wanjala
+                    </h3>
+                    <p className="text-gray-400 font-medium text-xs leading-relaxed mb-6">
+                      Overseeing financial capital portfolios, tournament budget matrices, asset balancing, and audit transparency.
+                    </p>
+                    <div className="border-t border-white/10 pt-4 flex justify-between text-[10px] font-bold tracking-wider uppercase text-gray-500">
+                      <span>Treasury</span>
+                      <a href="mailto:afcleopards@ingwetoronto.com" className="text-white/40 hover:text-ingwe-blue transition-colors">Ledger ↗</a>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
           {/* SECTION: DYNAMIC BRANCH NEWS */}
           <section className="mt-24">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-white/10 pb-4 gap-4">

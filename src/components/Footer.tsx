@@ -32,7 +32,6 @@ export default function Footer() {
           <div>
             <h4 className="font-black uppercase text-sm tracking-widest mb-6 text-ingwe-blue">Navigation</h4>
             <ul className="space-y-4 text-gray-400 font-bold uppercase text-xs">
-              <li><Link href="/match-center" className="hover:text-white transition-colors">Match Center</Link></li>
               <li><Link href="/heritage" className="hover:text-white transition-colors">The Heritage</Link></li>
               <li><Link href="/squad" className="hover:text-white transition-colors">The Squad</Link></li>
               <li><Link href="/gallery" className="hover:text-white transition-colors">The Lens (Gallery)</Link></li>
@@ -49,13 +48,13 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                  <MapPin size={16} className="text-white shrink-0" />
                  <p className="text-gray-400 text-[10px] font-bold uppercase italic leading-tight">
-                   The Loose Moose / Downtown Core<br />
-                   146 Front St W, Toronto, ON
+                   The Flower City Community Grounds<br />
+                   Brampton, ON
                  </p>
               </div>
               <div className="flex items-center gap-3">
                  <Mail size={16} className="text-white shrink-0" />
-                 <p className="text-white text-[10px] font-black uppercase">info@ingweto.ca</p>
+                 <p className="text-white text-[10px] font-black uppercase">info@ingwetoronto.com</p>
               </div>
             </div>
           </div>
