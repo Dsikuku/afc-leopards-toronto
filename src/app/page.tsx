@@ -315,7 +315,7 @@ export default function LandingPage() {
               {/* Tournament Announcement Image Window */}
               <div className="w-full h-48 overflow-hidden relative border-b border-white/10">
                 <img 
-                  src="/images/Konki2026.jpg" // Use a high-action pitch or stadium asset
+                  src="/images/Konki2026.JPG" // Use a high-action pitch or stadium asset
                   alt="Official Tournament Campaign" 
                   className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
                 />
@@ -333,7 +333,7 @@ export default function LandingPage() {
                     Ingwe Toronto FC Invited to the Annual Konki Tournament
                   </h3>
                   <p className="text-gray-400 font-medium text-sm leading-relaxed mb-8">
-                    Our local warriors have officially received an invitation to compete in the Annual Konki tournament. Battle lines are drawn, groups are locked, and training camp opens immediately.
+                    Our local warriors have officially received an invitation to compete in the Annual Konki tournament. Battle lines are drawn, groups are locked we hope to see you there!
                   </p>
                 </div>
                 

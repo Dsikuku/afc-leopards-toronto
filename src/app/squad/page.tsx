@@ -111,14 +111,14 @@ export default function SquadPage() {
 
           <section className="bg-ingwe-blue p-10 skew-x-[-2deg]">
             <div className="skew-x-[2deg]">
-              <h2 className="text-4xl font-black italic uppercase text-white mb-4">Summer Series 2026</h2>
+              <h2 className="text-4xl font-black italic uppercase text-white mb-4">Konki Tournament 2026</h2>
               <p className="text-white font-bold mb-8 opacity-90">Registration is open. Join the squad or come out to support the boys.</p>
               <div className="flex flex-col md:flex-row gap-6">
                 <div className="flex items-center gap-3 text-sm font-black uppercase tracking-tighter">
-                  <MapPin size={18} /> Cherry Beach Sports Fields
+                  <MapPin size={18} /> G.Ross Lord Park, Toronto
                 </div>
                 <div className="flex items-center gap-3 text-sm font-black uppercase tracking-tighter">
-                  <Calendar size={18} /> Starting June 15
+                  <Calendar size={18} /> June 13th, 2026
                 </div>
               </div>
             </div>

@@ -21,7 +21,7 @@ export default function TournamentInvitationPage() {
       {/* 2. HERO COVER LAYER */}
       <header className="relative h-[50vh] w-full overflow-hidden border-b border-white/10 bg-ingwe-dark">
         <img 
-          src="/images/Konki2026.jpg" 
+          src="/images/Konki2026.JPG" 
           alt="Annual Summer Cup Selection" 
           className="w-full h-full object-cover grayscale contrast-125 brightness-75"
         />

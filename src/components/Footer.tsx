@@ -13,7 +13,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="font-black text-3xl italic tracking-tighter text-white">
-              INGWE<span className="text-ingwe-blue">TO</span>
+              AFC LEOPARDS<span className="text-ingwe-blue"> TORONTO BRANCH</span>
             </Link>
             <p className="mt-4 text-gray-400 max-w-sm font-medium italic">
               The official bridge between the pride of Western Kenya and the heart of Ontario. 

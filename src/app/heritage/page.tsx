@@ -235,11 +235,11 @@ export default function HeritagePage() {
 
             <div className="space-y-6">
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 border-b border-white/10 pb-2">Latest Results</h3>
-              <MatchCard teamA="AFC Leopards" teamB="Gor Mahia" scoreA="0" scoreB="1" date="April 26, 2026" location="Nyayo Stadium" isFinished={true} />
-              <MatchCard teamA="AFC Leopards" teamB="Kenya Police" scoreA="0" scoreB="3" date="April 12, 2026" location="Kasarani Annex" isFinished={true} />
+              <MatchCard teamA="APS Bomet" teamB="AFC Leopards" scoreA="2" scoreB="1" date="May 24, 2026" location="Nyayo Stadium" isFinished={true} />
+              <MatchCard teamA="Kakamega Homeboys" teamB="AFC Leopards" scoreA="1" scoreB="2" date="May 16, 2026" location="Kasarani Annex" isFinished={true} />
 
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 border-b border-white/10 pb-2 mt-10">Upcoming Fixture</h3>
-              <MatchCard teamA="Ulinzin Stars" teamB="AFC Leopards" date="May 02, 2026" location="Ulinzi Sports Complex" isFinished={false} />
+              <MatchCard teamA="AFC Leopards" teamB="Bidco United" date="May 31, 2026" location="Ulinzi Sports Complex" isFinished={false} />
             </div>
           </div>
         </aside>
