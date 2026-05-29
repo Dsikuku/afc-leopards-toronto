@@ -12,7 +12,7 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ingwe Toronto Chapter",
+  title: "AFC Leopards Toronto Branch",
   description: "Official AFC Leopards Toronto Chapter platform",
 };
 
