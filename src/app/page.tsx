@@ -291,6 +291,123 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* --- BRANCH NEWS & EVENTS DISPATCH --- */}
+      <section className="py-32 px-6 bg-black border-t border-white/5 relative z-30">
+        <div className="max-w-7xl mx-auto">
+          
+          {/* Header Line */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+            <div>
+              <span className="text-ingwe-blue font-black uppercase text-[10px] tracking-[0.4em] block mb-2">// THE DISPATCH</span>
+              <h2 className="text-5xl md:text-6xl font-black italic uppercase tracking-tighter">Branch News & <br /> <span className="text-white">Upcoming Action</span></h2>
+            </div>
+            <p className="text-gray-500 font-bold uppercase text-[10px] tracking-widest max-w-xs md:text-right">
+              Live updates, logistics, and community bulletins from the Toronto diaspora network.
+            </p>
+          </div>
+
+          {/* Split Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            {/* LEFT: Featured News Story (5 Columns) */}
+            <div className="lg:col-span-5 group relative bg-white/[0.02] border border-white/10 flex flex-col justify-between overflow-hidden min-h-[500px]">
+              
+              {/* Tournament Announcement Image Window */}
+              <div className="w-full h-48 overflow-hidden relative border-b border-white/10">
+                <img 
+                  src="/images/Konki2026.jpg" // Use a high-action pitch or stadium asset
+                  alt="Official Tournament Campaign" 
+                  className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+                <span className="absolute top-4 left-4 bg-ingwe-blue text-white text-[9px] font-black uppercase px-2 py-1 tracking-wider skew-x-[-10deg]">
+                  Official Invitation
+                </span>
+              </div>
+
+              {/* Announcement Body Content */}
+              <div className="p-8 flex-grow flex flex-col justify-between">
+                <div>
+                  <span className="text-gray-500 font-bold text-[10px] tracking-widest block mb-3">MAY 28, 2026</span>
+                  <h3 className="text-3xl font-black italic uppercase tracking-tight text-white mb-4 group-hover:text-ingwe-blue transition-colors duration-300">
+                    Ingwe Toronto FC Invited to the Annual Konki Tournament
+                  </h3>
+                  <p className="text-gray-400 font-medium text-sm leading-relaxed mb-8">
+                    Our local warriors have officially received an invitation to compete in the Annual Konki tournament. Battle lines are drawn, groups are locked, and training camp opens immediately.
+                  </p>
+                </div>
+                
+                <Link href="/news/tournament-invitation" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white group-hover:text-ingwe-blue transition-colors w-max">
+                  Read Tournament Campaign <span className="text-ingwe-blue">→</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* RIGHT: Chronological Events Feed (7 Columns) */}
+            <div className="lg:col-span-7 space-y-4">
+              
+              {/* Event Event Card 1 */}
+              <div className="flex items-center bg-white text-black p-6 gap-6 hover:bg-ingwe-blue hover:text-white transition-all duration-300 transform hover:-translate-y-1">
+                {/* Date Stamp */}
+                <div className="flex flex-col items-center justify-center border-r-2 border-black/10 pr-6 min-w-[70px]">
+                  <span className="text-3xl font-black italic leading-none">13</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">JUN</span>
+                </div>
+                {/* Details */}
+                <div className="flex-grow">
+                  <span className="text-[9px] font-black uppercase tracking-widest bg-black text-white px-2 py-0.5 inline-block mb-1">Community</span>
+                  <h4 className="text-xl font-black uppercase tracking-tight">2026 Konki Tournament</h4>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/60 group-hover:text-white/80 mt-1">08:30 AM • G. Ross Lord Park, Toronto</p>
+                </div>
+                {/* Action CTA */}
+                <div className="hidden sm:block">
+                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Welcome</span>
+                </div>
+              </div>
+
+              {/* Event Event Card 2 */}
+              <div className="flex items-center bg-white text-black p-6 gap-6 hover:bg-ingwe-blue hover:text-white transition-all duration-300 transform hover:-translate-y-1">
+                {/* Date Stamp */}
+                <div className="flex flex-col items-center justify-center border-r-2 border-black/10 pr-6 min-w-[70px]">
+                  <span className="text-3xl font-black italic leading-none">TBD</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">TBD</span>
+                </div>
+                {/* Details */}
+                <div className="flex-grow">
+                  <span className="text-[9px] font-black uppercase tracking-widest bg-black text-white px-2 py-0.5 inline-block mb-1">Community</span>
+                  <h4 className="text-xl font-black uppercase tracking-tight">Annual Diaspora BBQ & Networking</h4>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/60 mt-1">2:00 PM • Centennial Park Area A</p>
+                </div>
+                <div className="hidden sm:block">
+                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Stay Tuned</span>
+                </div>
+              </div>
+
+              {/* Event Event Card 3 */}
+              <div className="flex items-center bg-white text-black p-6 gap-6 hover:bg-ingwe-blue hover:text-white transition-all duration-300 transform hover:-translate-y-1">
+                {/* Date Stamp */}
+                <div className="flex flex-col items-center justify-center border-r-2 border-black/10 pr-6 min-w-[70px]">
+                  <span className="text-3xl font-black italic leading-none">TBD</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">TBD</span>
+                </div>
+                {/* Details */}
+                <div className="flex-grow">
+                  <span className="text-[9px] font-black uppercase tracking-widest bg-black text-white px-2 py-0.5 inline-block mb-1">Philanthropy</span>
+                  <h4 className="text-xl font-black uppercase tracking-tight">Kit Collection Drive Close-out</h4>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/60 mt-1">All Day • Main Sorting Facility Drop-off</p>
+                </div>
+                <div className="hidden sm:block">
+                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Stay Tuned</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
       {/* --- THE LEADERSHIP & NEXT ACTION --- */}
       <section className="py-32 px-6 bg-ingwe-concrete/5 relative z-30">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
