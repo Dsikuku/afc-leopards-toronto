@@ -225,7 +225,7 @@ export default function LandingPage() {
                 <img 
                   src="/images/action2.jpg" 
                   alt="Fans at watch party"
-                  className="w-full h-full object-cover grayscale opacity-40 mix-blend-multiply group-hover:scale-110 group-hover:opacity-60 transition-all duration-700"
+                  className="w-full h-full object-cover md:grayscale md:contrast-125 md:brightness-90 md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
               </div>

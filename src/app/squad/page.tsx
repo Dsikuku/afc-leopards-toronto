@@ -137,9 +137,14 @@ export default function SquadPage() {
                 { src: "/images/squad/squad-action-2.jpeg", caption: "Konki Tournament 24'" },
               ].map((img, index) => (
                 <div key={index} className="relative aspect-[4/3] overflow-hidden group border border-white/5 bg-ingwe-concrete">
-                  <img src={img.src} alt={img.caption} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+                  {/* UPDATED TO md:grayscale MAP CRITERIA */}
+                  <img 
+                    src={img.src} 
+                    alt={img.caption} 
+                    className="w-full h-full object-cover md:grayscale md:contrast-110 md:brightness-90 md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700" 
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent p-6 flex items-end">
-                    <p className="text-sm font-black uppercase italic tracking-tighter text-white opacity-0 group-hover:opacity-100 transition-all">
+                    <p className="text-sm font-black uppercase italic tracking-tighter text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300">
                       {img.caption}
                     </p>
                   </div>

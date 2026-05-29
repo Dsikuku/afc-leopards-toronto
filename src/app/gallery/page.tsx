@@ -84,14 +84,15 @@ export default function GalleryPage() {
               >
                 {/* Image Container */}
                 <div className="relative overflow-hidden aspect-auto">
+                  {/* UPDATED: Isolated grayscale filtration to md: screens only */}
                   <img 
                     src={image.url} 
                     alt={image.title}
-                    className="w-full h-auto object-cover grayscale brightness-90 group-hover:grayscale-0 group-hover:brightness-110 group-hover:scale-[1.02] transition-all duration-1000 ease-in-out"
+                    className="w-full h-auto object-cover brightness-90 md:grayscale md:brightness-90 md:group-hover:grayscale-0 md:group-hover:brightness-110 md:group-hover:scale-[1.02] transition-all duration-1000 ease-in-out"
                   />
                   
-                  {/* Subtle Film Grain/Overlay */}
-                  <div className="absolute inset-0 pointer-events-none bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                  {/* Subtle Film Grain/Overlay: Hidden on mobile for immediate vibrancy */}
+                  <div className="hidden md:block absolute inset-0 pointer-events-none bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
                 </div>
 
                 {/* Info Bar (Always visible but refined) */}

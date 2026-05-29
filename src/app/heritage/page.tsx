@@ -194,7 +194,7 @@ export default function HeritagePage() {
                     <img 
                       src="/images/leadership/AFCToronto.jpg" 
                       alt="Gabriel Werunga Profile"
-                      className="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      className="w-full h-full object-cover md:grayscale md:contrast-125 md:brightness-90 md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   <div className="w-full">
@@ -223,7 +223,7 @@ export default function HeritagePage() {
                     <img 
                       src="/images/leadership/AFCToronto.jpg" 
                       alt="Ken Simiyu Profile"
-                      className="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      className="w-full h-full object-cover md:grayscale md:contrast-125 md:brightness-90 md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   <div className="w-full">
@@ -252,7 +252,7 @@ export default function HeritagePage() {
                     <img 
                       src="/images/leadership/AFCToronto.jpg" 
                       alt="Khwaka Kukubo Profile"
-                      className="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      className="w-full h-full object-cover md:grayscale md:contrast-125 md:brightness-90 md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   <div className="w-full">
@@ -281,7 +281,7 @@ export default function HeritagePage() {
                     <img 
                       src="/images/leadership/AFCToronto.jpg" 
                       alt="Silas Wanjala Profile"
-                      className="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                      className="w-full h-full object-cover md:grayscale md:contrast-125 md:brightness-90 md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   <div className="w-full">
