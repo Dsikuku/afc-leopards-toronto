@@ -1,5 +1,6 @@
 "use client";
-import { useState } from 'react';
+// 1. ADD: Include useEffect alongside useState
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, Maximize2, Instagram, ArrowRight, Share2 } from 'lucide-react';
 
@@ -23,6 +24,13 @@ const galleryImages = [
 
 export default function GalleryPage() {
   const [activeFilter, setActiveFilter] = useState("All");
+  
+  // 2. ADD: State tracker to check if component is fully mounted in browser DOM
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const filteredImages = activeFilter === "All" 
     ? galleryImages 
@@ -32,7 +40,6 @@ export default function GalleryPage() {
     <div className="bg-black min-h-screen pb-24 text-white selection:bg-ingwe-blue">
       {/* --- HEADER: Editorial Style --- */}
       <div className="relative pt-32 pb-20 px-6 bg-ingwe-concrete/10 border-b border-white/5 overflow-hidden">
-        {/* Decorative Background Text */}
         <span className="absolute top-10 -right-20 text-[200px] font-black italic text-white/[0.02] select-none pointer-events-none">
           INGWE
         </span>
@@ -68,52 +75,57 @@ export default function GalleryPage() {
         </div>
       </div>
 
-      {/* --- GALLERY GRID: Masonry-ish --- */}
+      {/* --- GALLERY GRID --- */}
       <div className="max-w-7xl mx-auto px-6 mt-16">
-        <motion.div layout className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-          <AnimatePresence mode="popLayout">
-            {filteredImages.map((image) => (
-              <motion.div 
-                key={image.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, ease: "circOut" }}
-                className="relative group break-inside-avoid border border-white/5 bg-ingwe-concrete"
-              >
-                {/* Image Container */}
-                <div className="relative overflow-hidden aspect-auto">
-                  {/* UPDATED: Isolated grayscale filtration to md: screens only */}
-                  <img 
-                    src={image.url} 
-                    alt={image.title}
-                    className="w-full h-auto object-cover brightness-90 md:grayscale md:brightness-90 md:group-hover:grayscale-0 md:group-hover:brightness-110 md:group-hover:scale-[1.02] transition-all duration-1000 ease-in-out"
-                  />
-                  
-                  {/* Subtle Film Grain/Overlay: Hidden on mobile for immediate vibrancy */}
-                  <div className="hidden md:block absolute inset-0 pointer-events-none bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
-                </div>
-
-                {/* Info Bar (Always visible but refined) */}
-                <div className="p-5 flex justify-between items-start border-t border-white/5 bg-black/40 backdrop-blur-sm">
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="text-ingwe-blue font-black text-[9px] uppercase tracking-[0.2em]">{image.category}</span>
-                      <span className="text-gray-600 text-[9px] font-black uppercase tracking-widest">— {image.year}</span>
-                    </div>
-                    <h4 className="text-lg font-black italic uppercase leading-none group-hover:text-ingwe-blue transition-colors">
-                      {image.title}
-                    </h4>
+        {/* 3. CONDITIONAL CHECK: Only execute layout animations once mounted */}
+        {isMounted ? (
+          <motion.div layout className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+            <AnimatePresence mode="popLayout">
+              {filteredImages.map((image) => (
+                <motion.div 
+                  key={image.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4, ease: "circOut" }}
+                  className="relative group break-inside-avoid border border-white/5 bg-ingwe-concrete"
+                >
+                  <div className="relative overflow-hidden aspect-auto">
+                    <img 
+                      src={image.url} 
+                      alt={image.title}
+                      className="w-full h-auto object-cover brightness-90 md:grayscale md:brightness-90 md:group-hover:grayscale-0 md:group-hover:brightness-110 md:group-hover:scale-[1.02] transition-all duration-1000 ease-in-out"
+                    />
+                    <div className="hidden md:block absolute inset-0 pointer-events-none bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
                   </div>
-                  <button className="text-gray-500 hover:text-white transition-colors">
-                    <Maximize2 size={16} />
-                  </button>
-                </div>
-              </motion.div>
+
+                  <div className="p-5 flex justify-between items-start border-t border-white/5 bg-black/40 backdrop-blur-sm">
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-ingwe-blue font-black text-[9px] uppercase tracking-[0.2em]">{image.category}</span>
+                        <span className="text-gray-600 text-[9px] font-black uppercase tracking-widest">— {image.year}</span>
+                      </div>
+                      <h4 className="text-lg font-black italic uppercase leading-none group-hover:text-ingwe-blue transition-colors">
+                        {image.title}
+                      </h4>
+                    </div>
+                    <button className="text-gray-500 hover:text-white transition-colors">
+                      <Maximize2 size={16} />
+                    </button>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        ) : (
+          /* 4. FALLBACK: Simple loading skeleton layout so page spacing looks perfect while mounting */
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 animate-pulse">
+            {[1, 2, 3, 4, 5, 6].map((n) => (
+              <div key={n} className="bg-ingwe-concrete h-64 border border-white/5 w-full break-inside-avoid" />
             ))}
-          </AnimatePresence>
-        </motion.div>
+          </div>
+        )}
       </div>
 
       {/* --- FOOTER CTA --- */}
