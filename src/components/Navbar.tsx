@@ -49,7 +49,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0 font-black text-2xl italic tracking-tighter text-white">
-                AFC LEOPARDS<span className="text-[--color-ingwe-blue]"> TORONTO BRANCH</span>
+                INGWE<span className="text-[--color-ingwe-blue]"> TORONTO </span>
               </Link>
             </div>
             
