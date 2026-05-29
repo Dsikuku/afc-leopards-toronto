@@ -1,8 +1,7 @@
 "use client";
-// 1. ADD: Include useEffect alongside useState
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Camera, Maximize2, Instagram, ArrowRight, Share2 } from 'lucide-react';
+import { Camera, Maximize2, ArrowRight, X, Calendar, Tag } from 'lucide-react';
 
 const categories = ["All", "Matchday", "Community", "Gala"];
 
@@ -24,13 +23,14 @@ const galleryImages = [
 
 export default function GalleryPage() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [loadedImages, setLoadedImages] = useState<number[]>([]);
   
-  // 2. ADD: State tracker to check if component is fully mounted in browser DOM
-  const [isMounted, setIsMounted] = useState(false);
+  // State to track which image is currently opened in the lightbox modal
+  const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const handleImageLoad = (id: number) => {
+    setLoadedImages((prev) => [...prev, id]);
+  };
 
   const filteredImages = activeFilter === "All" 
     ? galleryImages 
@@ -38,12 +38,11 @@ export default function GalleryPage() {
 
   return (
     <div className="bg-black min-h-screen pb-24 text-white selection:bg-ingwe-blue">
-      {/* --- HEADER: Editorial Style --- */}
+      {/* --- HEADER --- */}
       <div className="relative pt-32 pb-20 px-6 bg-ingwe-concrete/10 border-b border-white/5 overflow-hidden">
         <span className="absolute top-10 -right-20 text-[200px] font-black italic text-white/[0.02] select-none pointer-events-none">
           INGWE
         </span>
-        
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <div className="flex items-center gap-3 mb-6 text-ingwe-blue font-black uppercase tracking-[0.4em] text-[10px]">
@@ -53,7 +52,6 @@ export default function GalleryPage() {
               THE <span className="text-ingwe-blue text-glow">LENS</span>
             </h1>
             
-            {/* Filter Navigation */}
             <div className="flex flex-wrap items-center gap-6 border-t border-white/10 pt-8">
               <span className="text-[10px] font-black uppercase tracking-widest text-gray-500 mr-4">Filter By Archive:</span>
               {categories.map((cat) => (
@@ -77,29 +75,43 @@ export default function GalleryPage() {
 
       {/* --- GALLERY GRID --- */}
       <div className="max-w-7xl mx-auto px-6 mt-16">
-        {/* 3. CONDITIONAL CHECK: Only execute layout animations once mounted */}
-        {isMounted ? (
-          <motion.div layout className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-            <AnimatePresence mode="popLayout">
-              {filteredImages.map((image) => (
+        <motion.div layout className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+          <AnimatePresence mode="popLayout">
+            {filteredImages.map((image) => {
+              const isImgReady = loadedImages.includes(image.id);
+              
+              return (
                 <motion.div 
                   key={image.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4, ease: "circOut" }}
-                  className="relative group break-inside-avoid border border-white/5 bg-ingwe-concrete"
+                  transition={{ duration: 0.4 }}
+                  className="relative group break-inside-avoid border border-white/5 bg-ingwe-concrete overflow-hidden cursor-pointer"
+                  onClick={() => setSelectedImage(image)}
                 >
-                  <div className="relative overflow-hidden aspect-auto">
+                  {/* Image wrapper frame */}
+                  <div className="relative overflow-hidden bg-white/5 aspect-[4/3]">
+                    {!isImgReady && (
+                      <div className="absolute inset-0 bg-neutral-900 animate-pulse flex items-center justify-center">
+                        <span className="text-[9px] uppercase tracking-widest text-neutral-600 font-black">Loading Asset...</span>
+                      </div>
+                    )}
+                    
                     <img 
                       src={image.url} 
                       alt={image.title}
-                      className="w-full h-auto object-cover brightness-90 md:grayscale md:brightness-90 md:group-hover:grayscale-0 md:group-hover:brightness-110 md:group-hover:scale-[1.02] transition-all duration-1000 ease-in-out"
+                      onLoad={() => handleImageLoad(image.id)}
+                      className={`w-full h-full object-cover transition-all duration-700 ease-in-out ${
+                        isImgReady 
+                          ? 'opacity-100 scale-100 brightness-90 md:grayscale md:brightness-90 md:group-hover:grayscale-0 md:group-hover:brightness-110 md:group-hover:scale-[1.02]' 
+                          : 'opacity-0 scale-95'
+                      }`}
                     />
-                    <div className="hidden md:block absolute inset-0 pointer-events-none bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
                   </div>
 
+                  {/* Info Card Strip */}
                   <div className="p-5 flex justify-between items-start border-t border-white/5 bg-black/40 backdrop-blur-sm">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
@@ -110,23 +122,83 @@ export default function GalleryPage() {
                         {image.title}
                       </h4>
                     </div>
-                    <button className="text-gray-500 hover:text-white transition-colors">
+                    <button className="text-gray-500 group-hover:text-white transition-colors">
                       <Maximize2 size={16} />
                     </button>
                   </div>
                 </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        ) : (
-          /* 4. FALLBACK: Simple loading skeleton layout so page spacing looks perfect while mounting */
-          <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8 animate-pulse">
-            {[1, 2, 3, 4, 5, 6].map((n) => (
-              <div key={n} className="bg-ingwe-concrete h-64 border border-white/5 w-full break-inside-avoid" />
-            ))}
-          </div>
-        )}
+              );
+            })}
+          </AnimatePresence>
+        </motion.div>
       </div>
+
+      {/* --- LIGHTBOX MODAL --- */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 p-4 md:p-10 backdrop-blur-md cursor-zoom-out"
+          >
+            {/* Top Close Bar Container */}
+            <div className="absolute top-6 right-6 z-50">
+              <button 
+                onClick={() => setSelectedImage(null)}
+                className="p-3 bg-neutral-900/80 border border-white/10 text-white hover:bg-white hover:text-black transition-colors rounded-full"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Img Modal Body Viewport */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()} // Prevents closing modal when clicking the inner image box
+              className="relative max-w-5xl w-full max-h-[75vh] md:max-h-[80vh] flex items-center justify-center overflow-hidden border border-white/10 bg-neutral-950 shadow-2xl"
+            >
+              <img 
+                src={selectedImage.url} 
+                alt={selectedImage.title} 
+                className="w-full h-full max-h-[75vh] md:max-h-[80vh] object-contain"
+              />
+            </motion.div>
+
+            {/* Bottom Meta Bar Layout */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 15 }}
+              transition={{ delay: 0.1 }}
+              onClick={(e) => e.stopPropagation()}
+              className="mt-6 w-full max-w-5xl px-4 flex flex-col md:flex-row md:items-center justify-between gap-4 border-t border-white/5 pt-4"
+            >
+              <div>
+                <h3 className="text-2xl font-black italic uppercase text-white tracking-tight">{selectedImage.title}</h3>
+                <div className="flex items-center gap-4 mt-1 text-xs font-bold uppercase tracking-wider text-gray-400">
+                  <span className="flex items-center gap-1.5 text-ingwe-blue">
+                    <Tag size={12} /> {selectedImage.category}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-gray-500">
+                    <Calendar size={12} /> Season {selectedImage.year}
+                  </span>
+                </div>
+              </div>
+              <button 
+                onClick={() => setSelectedImage(null)}
+                className="self-start md:self-auto text-xs font-black uppercase tracking-widest text-neutral-400 hover:text-white border border-white/10 px-6 py-3 transition-colors"
+              >
+                Close Viewer
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* --- FOOTER CTA --- */}
       <section className="max-w-7xl mx-auto px-6 mt-32">
