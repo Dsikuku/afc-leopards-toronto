@@ -192,7 +192,7 @@ export default function HeritagePage() {
                   </div>
                   <div className="w-24 h-32 bg-zinc-900 border border-white/10 overflow-hidden relative mb-8 skew-x-[-4deg] group-hover:border-ingwe-blue transition-colors duration-500">
                     <img 
-                      src="/images/leadership/AFCToronto.jpg" 
+                      src="/images/leadership/Gabriel_Werunga.JPG" 
                       alt="Gabriel Werunga Profile"
                       className="w-full h-full object-cover md:grayscale md:contrast-125 md:brightness-90 md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700"
                     />
@@ -221,7 +221,7 @@ export default function HeritagePage() {
                   </div>
                   <div className="w-24 h-32 bg-zinc-900 border border-white/10 overflow-hidden relative mb-8 skew-x-[-4deg] group-hover:border-ingwe-blue transition-colors duration-500">
                     <img 
-                      src="/images/leadership/AFCToronto.jpg" 
+                      src="/images/leadership/Ken_Simiyu.JPG" 
                       alt="Ken Simiyu Profile"
                       className="w-full h-full object-cover md:grayscale md:contrast-125 md:brightness-90 md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700"
                     />
@@ -250,7 +250,7 @@ export default function HeritagePage() {
                   </div>
                   <div className="w-24 h-32 bg-zinc-900 border border-white/10 overflow-hidden relative mb-8 skew-x-[-4deg] group-hover:border-ingwe-blue transition-colors duration-500">
                     <img 
-                      src="/images/leadership/AFCToronto.jpg" 
+                      src="/images/leadership/Khwaka_Kukubo.JPG" 
                       alt="Khwaka Kukubo Profile"
                       className="w-full h-full object-cover md:grayscale md:contrast-125 md:brightness-90 md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700"
                     />
@@ -279,7 +279,7 @@ export default function HeritagePage() {
                   </div>
                   <div className="w-24 h-32 bg-zinc-900 border border-white/10 overflow-hidden relative mb-8 skew-x-[-4deg] group-hover:border-ingwe-blue transition-colors duration-500">
                     <img 
-                      src="/images/leadership/AFCToronto.jpg" 
+                      src="/images/leadership/Silas_Wanjala.JPG" 
                       alt="Silas Wanjala Profile"
                       className="w-full h-full object-cover md:grayscale md:contrast-125 md:brightness-90 md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700"
                     />

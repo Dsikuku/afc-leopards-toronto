@@ -13,7 +13,7 @@ export default function TournamentInvitationPage() {
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Return Home
           </Link>
           <div className="font-black text-xl italic tracking-tighter">
-            INGWE<span className="text-ingwe-blue">TO</span>
+            INGWE<span className="text-ingwe-blue"> Toronto</span>
           </div>
         </div>
       </nav>
