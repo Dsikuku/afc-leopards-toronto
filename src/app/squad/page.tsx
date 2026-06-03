@@ -8,56 +8,11 @@ import {
   ArrowRight,
   Flame,
   Medal,
-  Camera,
-  Target // Added for the form
+  Camera
 } from 'lucide-react';
 import MatchCard from '@/components/MatchCard';
-
-// Separating the form into its own internal component for cleanliness
-function JoinBranchForm() {
-  return (
-    <section id="join" className="relative mt-28 py-20 px-6 bg-ingwe-concrete/50 border-t-4 border-ingwe-blue overflow-hidden">
-      <div className="absolute -left-10 top-0 text-[180px] font-black italic tracking-tighter text-black opacity-10 leading-none select-none">
-        INGWE
-      </div>
-      <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div className="flex flex-col justify-center">
-          <div className="flex items-center gap-4 mb-4">
-            <Target className="text-ingwe-blue" size={36} />
-            <span className="text-ingwe-blue font-black uppercase tracking-[0.3em] text-xs">Membership Drive 2026</span>
-          </div>
-          <h2 className="text-5xl md:text-7xl font-black italic tracking-tighter uppercase leading-none mb-6">
-            Join <br />The <span className="text-glow-blue text-ingwe-blue text-white">Pride</span>
-          </h2>
-          <p className="max-w-lg text-gray-300 leading-relaxed italic font-medium">
-            Be part of the largest AFC Leopards diaspora community in North America. Connect with fellow fans and directly support the mother club.
-          </p>
-        </div>
-        <div className="bg-black p-8 md:p-12 border border-white/5 shadow-2xl relative">
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-[10px] uppercase font-black tracking-widest text-gray-500 mb-2">First Name</label>
-                <input type="text" placeholder="John" className="w-full p-4 bg-ingwe-concrete border border-white/10 text-white focus:border-ingwe-blue outline-none transition-colors" />
-              </div>
-              <div>
-                <label className="block text-[10px] uppercase font-black tracking-widest text-gray-500 mb-2">Last Name</label>
-                <input type="text" placeholder="Mutua" className="w-full p-4 bg-ingwe-concrete border border-white/10 text-white focus:border-ingwe-blue outline-none transition-colors" />
-              </div>
-            </div>
-            <div>
-              <label className="block text-[10px] uppercase font-black tracking-widest text-gray-500 mb-2">Email Address</label>
-              <input type="email" placeholder="john@example.com" className="w-full p-4 bg-ingwe-concrete border border-white/10 text-white focus:border-ingwe-blue outline-none transition-colors" />
-            </div>
-            <button type="submit" className="w-full flex items-center justify-center gap-3 bg-ingwe-blue text-white px-8 py-5 font-black uppercase italic hover:bg-white hover:text-black transition-all shadow-xl">
-              Submit Application <ArrowRight size={18} />
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-  );
-}
+// IMPORT THE SHARED COMPONENT TO ELIMINATE REPETITION
+import JoinBranchForm from '@/components/JoinBranchForm';
 
 export default function SquadPage() {
   return (
@@ -73,7 +28,7 @@ export default function SquadPage() {
               INGWE <span className="text-white text-glow-white">TORONTO FC</span>
             </h1>
             <p className="max-w-2xl text-xl text-gray-400 font-medium italic uppercase tracking-tight">
-              Representing the Pride in the Toronto. From local league dominance to community tournaments, we carry the Ingwe name on every pitch.
+              Representing the Pride in Toronto. From local league dominance to community tournaments, we carry the Ingwe name on every pitch.
             </p>
           </motion.div>
         </div>
@@ -137,7 +92,6 @@ export default function SquadPage() {
                 { src: "/images/squad/squad-action-2.jpeg", caption: "Konki Tournament 24'" },
               ].map((img, index) => (
                 <div key={index} className="relative aspect-[4/3] overflow-hidden group border border-white/5 bg-ingwe-concrete">
-                  {/* UPDATED TO md:grayscale MAP CRITERIA */}
                   <img 
                     src={img.src} 
                     alt={img.caption} 
@@ -176,7 +130,7 @@ export default function SquadPage() {
         </aside>
       </div>
 
-      {/* Adding the Membership Form here */}
+      {/* Render the clean, singular import block */}
       <JoinBranchForm />
     </div>
   );
