@@ -361,7 +361,7 @@ export default function LandingPage() {
                 </div>
                 {/* Action CTA */}
                 <div className="hidden sm:block">
-                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Welcome</span>
+                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Learn More</span>
                 </div>
               </div>
 
@@ -369,17 +369,17 @@ export default function LandingPage() {
               <div className="flex items-center bg-white text-black p-6 gap-6 hover:bg-ingwe-blue hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                 {/* Date Stamp */}
                 <div className="flex flex-col items-center justify-center border-r-2 border-black/10 pr-6 min-w-[70px]">
-                  <span className="text-3xl font-black italic leading-none">TBD</span>
-                  <span className="text-[10px] font-black uppercase tracking-widest">TBD</span>
+                  <span className="text-3xl font-black italic leading-none">11</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">JUL</span>
                 </div>
                 {/* Details */}
                 <div className="flex-grow">
                   <span className="text-[9px] font-black uppercase tracking-widest bg-black text-white px-2 py-0.5 inline-block mb-1">Community</span>
-                  <h4 className="text-xl font-black uppercase tracking-tight">Annual Diaspora BBQ & Networking</h4>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/60 mt-1">2:00 PM • Centennial Park Area A</p>
+                  <h4 className="text-xl font-black uppercase tracking-tight">Swahili Summer  Festival</h4>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/60 mt-1">10:00 AM • Regent Park Athletic Grounds, Toronto</p>
                 </div>
                 <div className="hidden sm:block">
-                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Stay Tuned</span>
+                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Learn More</span>
                 </div>
               </div>
 

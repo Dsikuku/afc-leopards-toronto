@@ -118,8 +118,8 @@ export default function SquadPage() {
             </div>
             <div className="space-y-6">
               <h3 className="text-[10px] font-black uppercase text-gray-500 border-b border-white/10 pb-2">Recent Outings</h3>
-              <MatchCard teamA="Ingwe Toronto" teamB="Ghana Stars" scoreA="3" scoreB="2" date="Last Sunday" location="Lamport Stadium" isFinished={true} />
-              <MatchCard teamA="Nigeria FC" teamB="Ingwe Toronto" scoreA="1" scoreB="1" date="Oct 2025" location="Esther Shiner Stadium" isFinished={true} />
+              <MatchCard teamA="Ingwe Toronto FC" teamB="Hamilton Lions" scoreA="1" scoreB="3" date="Jun 13,2026" location="G.Ross Lord Park" isFinished={true} />
+              <MatchCard teamA="Ingwe Toronto FC" teamB="Taifa United" scoreA="1" scoreB="0" date="Jul 11, 2026" location="Regent Park Athletic Grounds" isFinished={true} />
               <h3 className="text-[10px] font-black uppercase text-gray-500 border-b border-white/10 pb-2 mt-10">Next Kick-off</h3>
               <MatchCard teamA="Ingwe Toronto" teamB="Somali United" date="Sun, 3:00 PM" location="Cherry Beach Pitch 1" isFinished={false} />
               <a href="#join" className="w-full mt-6 py-4 border border-white/20 hover:bg-white hover:text-black transition-all font-black uppercase italic text-xs tracking-widest flex items-center justify-center gap-2">
