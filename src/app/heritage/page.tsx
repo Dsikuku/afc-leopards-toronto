@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react'; // Added useState
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   History, 
@@ -33,10 +33,11 @@ export default function HeritagePage() {
     {
       id: 2,
       type: 'upcoming',
-      status: 'July 2026',
+      status: 'December 2026',
       title: "The Ingwe Toronto Gala",
       description: "Our biggest fundraiser yet. An evening of Kenyan culture, football heritage, and networking at the Liberty Grand. Supporting the Stadium Fund.",
-      meta: "Join Planning Committee",
+      meta: "View Event Details",
+      link: "/gala", // Linked directly to the new dedicated gala page
       icon: <Target size={20} className="text-ingwe-blue" />,
       isMain: true
     },
@@ -376,11 +377,11 @@ export default function HeritagePage() {
 
             <div className="space-y-6">
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 border-b border-white/10 pb-2">Latest Results</h3>
-              <MatchCard teamA="APS Bomet" teamB="AFC Leopards" scoreA="2" scoreB="1" date="May 24, 2026" location="Nyayo Stadium" isFinished={true} />
-              <MatchCard teamA="Kakamega Homeboys" teamB="AFC Leopards" scoreA="1" scoreB="2" date="May 16, 2026" location="Kasarani Annex" isFinished={true} />
+              <MatchCard teamA="AFC Leopards " teamB="Shabana" scoreA="0" scoreB="0" date="October 25, 2026" location="Nyayo Stadium" isFinished={true} />
+              <MatchCard teamA="Kenya Police" teamB="AFC Leopards" scoreA="1" scoreB="2" date="October 20, 2026" location="Nyayo Stadium" isFinished={true} />
 
               <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 border-b border-white/10 pb-2 mt-10">Upcoming Fixture</h3>
-              <MatchCard teamA="AFC Leopards" teamB="Bidco United" date="May 31, 2026" location="Ulinzi Sports Complex" isFinished={false} />
+              <MatchCard teamA="Mara Sugar" teamB="AFC Leopards" date="October 28, 2026" location="William Ole Ntimama Stadium" isFinished={false} />
             </div>
           </div>
         </aside>
