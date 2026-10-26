@@ -83,7 +83,7 @@ export default function GalaPage() {
           <div className="absolute -inset-1 bg-gradient-to-r from-ingwe-blue to-transparent opacity-30 blur-lg group-hover:opacity-50 transition duration-1000"></div>
           <div className="relative border border-white/10 bg-ingwe-concrete overflow-hidden aspect-[3/4]">
             <img 
-              src="/images/gala26poster.png" 
+              src="/images/gala26poster.PNG" 
               alt="Ingwe Toronto Gala Poster" 
               className="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-transform duration-700"
             />
