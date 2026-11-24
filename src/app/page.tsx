@@ -315,7 +315,7 @@ export default function LandingPage() {
               {/* Tournament Announcement Image Window */}
               <div className="w-full h-48 overflow-hidden relative border-b border-white/10">
                 <img 
-                  src="/images/Konki2026.JPG" // Use a high-action pitch or stadium asset
+                  src="/images/gala26poster.JPG" // Use a high-action pitch or stadium asset
                   alt="Official Tournament Campaign" 
                   className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
                 />
@@ -328,17 +328,17 @@ export default function LandingPage() {
               {/* Announcement Body Content */}
               <div className="p-8 flex-grow flex flex-col justify-between">
                 <div>
-                  <span className="text-gray-500 font-bold text-[10px] tracking-widest block mb-3">MAY 28, 2026</span>
+                  <span className="text-gray-500 font-bold text-[10px] tracking-widest block mb-3">Dec 26, 2026</span>
                   <h3 className="text-3xl font-black italic uppercase tracking-tight text-white mb-4 group-hover:text-ingwe-blue transition-colors duration-300">
-                    Ingwe Toronto FC Invited to the Annual Konki Tournament
+                    AFC Leopard's Toronto Branch, End of Year Party and Dance
                   </h3>
                   <p className="text-gray-400 font-medium text-sm leading-relaxed mb-8">
-                    Our local warriors have officially received an invitation to compete in the Annual Konki tournament. Battle lines are drawn, groups are locked we hope to see you there!
+                    To mark the end of an amazing year, join us for an evening of celebration, culture, and community!
                   </p>
                 </div>
                 
-                <Link href="/news/tournament-invitation" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white group-hover:text-ingwe-blue transition-colors w-max">
-                  Read Tournament Campaign <span className="text-ingwe-blue">→</span>
+                <Link href="/gala" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white group-hover:text-ingwe-blue transition-colors w-max">
+                  Read Gala Details <span className="text-ingwe-blue">→</span>
                 </Link>
               </div>
             </div>
@@ -350,18 +350,18 @@ export default function LandingPage() {
               <div className="flex items-center bg-white text-black p-6 gap-6 hover:bg-ingwe-blue hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                 {/* Date Stamp */}
                 <div className="flex flex-col items-center justify-center border-r-2 border-black/10 pr-6 min-w-[70px]">
-                  <span className="text-3xl font-black italic leading-none">13</span>
-                  <span className="text-[10px] font-black uppercase tracking-widest">JUN</span>
+                  <span className="text-3xl font-black italic leading-none">TBD</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">TBD</span>
                 </div>
                 {/* Details */}
                 <div className="flex-grow">
                   <span className="text-[9px] font-black uppercase tracking-widest bg-black text-white px-2 py-0.5 inline-block mb-1">Community</span>
-                  <h4 className="text-xl font-black uppercase tracking-tight">2026 Konki Tournament</h4>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/60 group-hover:text-white/80 mt-1">08:30 AM • G. Ross Lord Park, Toronto</p>
+                  <h4 className="text-xl font-black uppercase tracking-tight">2027 Konki Tournament</h4>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/60 group-hover:text-white/80 mt-1">08:30 AM • TBD, Toronto</p>
                 </div>
                 {/* Action CTA */}
                 <div className="hidden sm:block">
-                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Learn More</span>
+                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Stay Tuned</span>
                 </div>
               </div>
 
@@ -369,17 +369,17 @@ export default function LandingPage() {
               <div className="flex items-center bg-white text-black p-6 gap-6 hover:bg-ingwe-blue hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                 {/* Date Stamp */}
                 <div className="flex flex-col items-center justify-center border-r-2 border-black/10 pr-6 min-w-[70px]">
-                  <span className="text-3xl font-black italic leading-none">11</span>
-                  <span className="text-[10px] font-black uppercase tracking-widest">JUL</span>
+                  <span className="text-3xl font-black italic leading-none">TBD</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">TBD</span>
                 </div>
                 {/* Details */}
                 <div className="flex-grow">
                   <span className="text-[9px] font-black uppercase tracking-widest bg-black text-white px-2 py-0.5 inline-block mb-1">Community</span>
                   <h4 className="text-xl font-black uppercase tracking-tight">Swahili Summer  Festival</h4>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/60 mt-1">10:00 AM • Regent Park Athletic Grounds, Toronto</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/60 mt-1">10:00 AM • RTBD, Toronto</p>
                 </div>
                 <div className="hidden sm:block">
-                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Learn More</span>
+                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Stay Tuned</span>
                 </div>
               </div>
 

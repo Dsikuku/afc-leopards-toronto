@@ -64,7 +64,7 @@ export default function GalaPage() {
             </div>
             <div>
               <span className="text-[10px] uppercase font-black tracking-widest text-gray-500 block">Venue</span>
-              <span className="text-lg font-black italic uppercase text-white">800 Mary St, Brampton</span>
+              <span className="text-lg font-black italic uppercase text-white">80 Mary St, Brampton</span>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function GalaPage() {
           <div className="absolute -inset-1 bg-gradient-to-r from-ingwe-blue to-transparent opacity-30 blur-lg group-hover:opacity-50 transition duration-1000"></div>
           <div className="relative border border-white/10 bg-ingwe-concrete overflow-hidden aspect-[3/4]">
             <img 
-              src="/images/gala26poster.PNG" 
+              src="/images/gala26poster.JPG" 
               alt="Ingwe Toronto Gala Poster" 
               className="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-transform duration-700"
             />
