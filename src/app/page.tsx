@@ -315,7 +315,7 @@ export default function LandingPage() {
               {/* Tournament Announcement Image Window */}
               <div className="w-full h-48 overflow-hidden relative border-b border-white/10">
                 <img 
-                  src="/images/gala26poster.JPG" // Use a high-action pitch or stadium asset
+                  src="/images/gala2026.png" // Use a high-action pitch or stadium asset
                   alt="Official Tournament Campaign" 
                   className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
                 />
