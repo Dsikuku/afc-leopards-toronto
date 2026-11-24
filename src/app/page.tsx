@@ -41,7 +41,7 @@ function FAQSection() {
   const [activeId, setActiveId] = useState<number | null>(null);
 
   return (
-    <section className="py-32 px-6 bg-black border-t border-white/5 relative z-30">
+    <section className="py-32 px-6 bg-gradient-to-b from-black via-ingwe-blue/[0.04] to-black border-t border-ingwe-blue/20 relative z-30">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
           <div>
@@ -52,7 +52,7 @@ function FAQSection() {
               The <span className="text-ingwe-blue text-glow-blue">Briefing</span>
             </h2>
           </div>
-          <p className="text-gray-500 font-bold uppercase text-[10px] tracking-widest md:text-right">
+          <p className="text-gray-400 font-bold uppercase text-[10px] tracking-widest md:text-right">
             Everything you need to know <br /> about the AFC Leopards Toronto Branch.
           </p>
         </div>
@@ -61,7 +61,7 @@ function FAQSection() {
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className={`border-b border-white/10 transition-colors duration-500 ${activeId === index ? 'bg-ingwe-concrete/20' : 'hover:bg-white/[0.02]'}`}
+              className={`border-b border-white/10 transition-colors duration-500 ${activeId === index ? 'bg-ingwe-blue/10 border-ingwe-blue/40' : 'hover:bg-white/[0.03]'}`}
             >
               <button
                 onClick={() => setActiveId(activeId === index ? null : index)}
@@ -70,7 +70,7 @@ function FAQSection() {
                 <span className={`text-xl md:text-2xl font-black italic uppercase transition-all duration-300 ${activeId === index ? 'text-ingwe-blue' : 'text-white'}`}>
                   {faq.question}
                 </span>
-                <div className={`p-2 rounded-full border transition-all duration-300 ${activeId === index ? 'border-ingwe-blue bg-ingwe-blue text-white' : 'border-white/20 text-gray-500 group-hover:border-white'}`}>
+                <div className={`p-2 rounded-full border transition-all duration-300 ${activeId === index ? 'border-ingwe-blue bg-ingwe-blue text-white' : 'border-white/20 text-gray-400 group-hover:border-ingwe-blue group-hover:text-white'}`}>
                   {activeId === index ? <Minus size={20} /> : <Plus size={20} />}
                 </div>
               </button>
@@ -84,7 +84,7 @@ function FAQSection() {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="pb-8 pr-12 text-gray-400 leading-relaxed font-medium italic">
+                    <div className="pb-8 pr-12 text-gray-300 leading-relaxed font-medium italic">
                       {faq.answer}
                     </div>
                   </motion.div>
@@ -108,28 +108,28 @@ export default function LandingPage() {
         {/* SECTION 1: THE HERITAGE */}
         <motion.div 
           whileHover={{ flex: 1.6 }} 
-          className="relative flex-1 group border-r border-white/5 overflow-hidden transition-all duration-[700ms] ease-out bg-ingwe-blue min-h-[50vh] md:min-h-screen"
+          className="relative flex-1 group border-r border-white/10 overflow-hidden transition-all duration-[700ms] ease-out bg-ingwe-blue min-h-[50vh] md:min-h-screen"
         >
           <div className="absolute inset-0 z-0">
             <img 
               src="/images/afc-leopards.png" 
               alt="Heritage"
-              className="w-full h-full object-cover grayscale opacity-80 mix-blend-multiply group-hover:scale-110 group-hover:opacity-100 transition-all duration-[1000ms] ease-in-out"
+              className="w-full h-full object-cover grayscale brightness-90 contrast-110 opacity-85 group-hover:scale-110 transition-all duration-[1000ms] ease-in-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-ingwe-blue/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-ingwe-blue/25 to-black/35" />
           </div>
 
           <div className="relative z-10 h-full flex flex-col justify-center p-12 md:p-20">
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-              <Shield className="text-white/80 mb-6 drop-shadow-lg" size={56} strokeWidth={1.5}/>
+              <Shield className="text-white mb-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]" size={56} strokeWidth={1.5}/>
               <h2 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none mb-6 text-glow-white">
                 AFC LEOPARDS <span className="text-white">TORONTO BRANCH</span>
               </h2>
-              <p className="max-w-md text-gray-200 font-medium italic mb-12 uppercase text-sm tracking-widest leading-relaxed">
+              <p className="max-w-md text-white/95 font-medium italic mb-12 uppercase text-sm tracking-widest leading-relaxed drop-shadow">
                 Connecting the Toronto pride to the legendary roots of AFC Leopards Kenya. History, Membership, and the 1964 Legacy.
               </p>
               <Link href="/heritage">
-                <button className="flex items-center gap-4 bg-white text-black px-10 py-5 font-black uppercase italic skew-x-[-10deg] hover:bg-black hover:text-white transition-all group/btn text-lg">
+                <button className="flex items-center gap-4 bg-white text-black px-10 py-5 font-black uppercase italic skew-x-[-10deg] hover:bg-ingwe-blue hover:text-white transition-all group/btn text-lg shadow-xl">
                   Explore History <ArrowRight className="group-hover/btn:translate-x-2 transition-transform" />
                 </button>
               </Link>
@@ -146,22 +146,22 @@ export default function LandingPage() {
             <img 
               src="/images/ingwe-toronto.jpeg" 
               alt="Local Squad"
-              className="w-full h-full object-cover grayscale opacity-70 mix-blend-multiply group-hover:scale-110 group-hover:opacity-100 transition-all duration-[1000ms] ease-in-out"
+              className="w-full h-full object-cover grayscale brightness-90 contrast-110 opacity-85 group-hover:scale-110 transition-all duration-[1000ms] ease-in-out"
             />
-            <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-ingwe-blue/15" />
           </div>
 
           <div className="relative z-10 h-full flex flex-col justify-center items-end text-right p-12 md:p-20">
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-              <Trophy className="text-ingwe-blue mb-6 drop-shadow-[0_0_15px_rgba(0,102,255,0.8)]" size={56} strokeWidth={1.5} />
+              <Trophy className="text-ingwe-blue mb-6 drop-shadow-[0_0_18px_rgba(0,102,255,0.85)]" size={56} strokeWidth={1.5} />
               <h2 className="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none mb-6 text-glow-blue">
-                INGWE <span className="text-ingwe-blue ">TORONTO FC</span>
+                INGWE <span className="text-ingwe-blue">TORONTO FC</span>
               </h2>
-              <p className="max-w-md text-gray-300 font-medium italic mb-12 uppercase text-sm tracking-widest leading-relaxed">
+              <p className="max-w-md text-gray-100 font-medium italic mb-12 uppercase text-sm tracking-widest leading-relaxed drop-shadow">
                 Our local warriors taking on the Toronto leagues. Matchdays, Standings, and the Current Squad.
               </p>
               <Link href="/squad">
-                <button className="flex items-center gap-4 bg-ingwe-blue text-white px-10 py-5 font-black uppercase italic skew-x-[-10deg] hover:bg-white hover:text-black transition-all group/btn text-lg">
+                <button className="flex items-center gap-4 bg-ingwe-blue text-white px-10 py-5 font-black uppercase italic skew-x-[-10deg] hover:bg-white hover:text-black transition-all group/btn text-lg shadow-xl">
                   <ArrowRight className="rotate-180 group-hover/btn:-translate-x-2 transition-transform" /> View The Squad
                 </button>
               </Link>
@@ -169,30 +169,24 @@ export default function LandingPage() {
           </div>
         </motion.div>
 
-      {/* --- CENTRAL ICON OVERLAY (ELLIPSE PORTAL IMAGE COVER) --- */}
-      <div className="absolute bottom-30 left-1/2 -translate-x-1/2 z-40 pointer-events-none hidden md:flex items-center justify-center">
-        
-        {/* The Ellipse Portal */}
-        <div className="bg-black border-[3px] border-ingwe-blue w-28 h-36 rounded-full shadow-[0_0_50px_rgba(0,102,255,0.4)] overflow-hidden flex items-center justify-center relative">
-          
-          {/* Inside Layer: Image mapped to cover the entire canvas area */}
-          <div className="w-full h-full">
-            <img 
-              src="/images/leopard.jpg" 
-              alt="Ingwe Pride"
-              className="w-full h-full object-cover brightness-110 contrast-125"
-            />
-          </div>
+        {/* --- CENTRAL ICON OVERLAY (ELLIPSE PORTAL IMAGE COVER) --- */}
+        <div className="absolute bottom-30 left-1/2 -translate-x-1/2 z-40 pointer-events-none hidden md:flex items-center justify-center">
+          <div className="bg-black border-[3px] border-ingwe-blue w-28 h-36 rounded-full shadow-[0_0_50px_rgba(0,102,255,0.5)] overflow-hidden flex items-center justify-center relative">
+            <div className="w-full h-full">
+              <img 
+                src="/images/leopard.jpg" 
+                alt="Ingwe Pride"
+                className="w-full h-full object-cover brightness-110 contrast-110"
+              />
+            </div>
 
-          {/* Small floating text badge embedded inside */}
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap z-50">
-            <span className="text-white font-black italic uppercase text-[8px] tracking-[0.3em] bg-black px-2 py-0.5 border border-white/5 rounded-full">
-              EST. 1964
-            </span>
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap z-50">
+              <span className="text-white font-black italic uppercase text-[8px] tracking-[0.3em] bg-ingwe-blue px-2 py-0.5 border border-white/20 rounded-full">
+                EST. 1964
+              </span>
+            </div>
           </div>
-
         </div>
-      </div>
 
       </main>
 
@@ -206,84 +200,83 @@ export default function LandingPage() {
             { label: "Next Match", value: "TBA" },
           ].map((stat, i) => (
             <div key={i} className="text-center">
-              <p className="text-black/60 font-black uppercase text-[10px] tracking-widest">{stat.label}</p>
-              <p className="text-white text-2xl font-black italic tracking-tighter uppercase">{stat.value}</p>
+              <p className="text-white/80 font-black uppercase text-[10px] tracking-widest">{stat.label}</p>
+              <p className="text-white text-2xl font-black italic tracking-tighter uppercase drop-shadow-sm">{stat.value}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* --- 3. COMMUNITY GRID: WITH DYNAMIC BACKGROUNDS --- */}
-      <section className="py-32 px-6 bg-black relative overflow-hidden z-30">
+      {/* --- 3. COMMUNITY GRID: WITH VIBRANT BACKGROUNDS --- */}
+      <section className="py-32 px-6 bg-gradient-to-b from-ingwe-blue/10 via-black to-black relative overflow-hidden z-30">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-1 bg-white/5 border border-white/5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 bg-ingwe-blue/15 border border-ingwe-blue/30 p-1">
             
             {/* Card 1: Watch Parties */}
-            <div className="group relative aspect-[4/5] bg-ingwe-concrete overflow-hidden flex flex-col justify-end p-10">
-              {/* Background Image Layer */}
+            <div className="group relative aspect-[4/5] bg-neutral-950 overflow-hidden flex flex-col justify-end p-10 border border-white/10">
               <div className="absolute inset-0 z-0">
                 <img 
                   src="/images/action2.jpg" 
                   alt="Fans at watch party"
-                  className="w-full h-full object-cover grayscale opacity-40 mix-blend-multiply group-hover:scale-110 group-hover:opacity-60 transition-all duration-700"
+                  className="w-full h-full object-cover brightness-100 opacity-85 group-hover:scale-110 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-ingwe-blue/15" />
               </div>
 
-              {/* Content Layer */}
               <div className="relative z-10">
-                <Clock className="text-ingwe-blue mb-4 opacity-50 group-hover:opacity-100 transition-opacity" size={32} />
-                <h3 className="text-4xl font-black italic uppercase leading-none mb-4">Watch <br/> <span className="text-ingwe-blue">Parties</span></h3>
-                <p className="text-gray-400 font-bold uppercase text-[10px] tracking-widest leading-relaxed">
+                <Clock className="text-ingwe-blue mb-4" size={32} />
+                <h3 className="text-4xl font-black italic uppercase leading-none mb-4 text-white">Watch <br/> <span className="text-ingwe-blue">Parties</span></h3>
+                <p className="text-gray-200 font-bold uppercase text-[10px] tracking-widest leading-relaxed">
                   High energy, pure passion, and East African flavors in the heart of the 6ix.
                 </p>
-                <div className="mt-8 h-1 w-0 group-hover:w-full bg-ingwe-blue transition-all duration-500" />
+                <div className="mt-8 h-1 w-12 group-hover:w-full bg-ingwe-blue transition-all duration-500" />
               </div>
             </div>
 
-            {/* Card 2: Kit Drives (Impact Focus) */}
-            <div className="group relative aspect-[4/5] bg-ingwe-blue overflow-hidden flex flex-col justify-end p-10">
-              {/* Background Image Layer */}
+            {/* Card 2: Ingwe Gala (Linked to /gala) */}
+            <Link 
+              href="/gala" 
+              className="group relative aspect-[4/5] bg-ingwe-blue overflow-hidden flex flex-col justify-end p-10 border border-ingwe-blue/50 cursor-pointer block"
+            >
               <div className="absolute inset-0 z-0">
                 <img 
                   src="/images/ourchairman.jpg" 
-                  alt="Donation kits"
-                  className="w-full h-full object-cover grayscale brightness-50 contrast-125 mix-blend-overlay opacity-50 group-hover:scale-110 group-hover:opacity-70 transition-all duration-700"
+                  alt="Ingwe Toronto Gala"
+                  className="w-full h-full object-cover brightness-100 contrast-105 opacity-85 group-hover:scale-110 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-ingwe-blue/40 mix-blend-color" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-ingwe-blue/45 to-ingwe-blue/25" />
               </div>
 
-              {/* Content Layer */}
               <div className="relative z-10">
+                <div className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white/90 mb-3 group-hover:translate-x-1 transition-transform">
+                  Explore Gala <ArrowRight size={14} />
+                </div>
                 <h3 className="text-4xl font-black italic uppercase leading-none mb-4 text-white">Ingwe <br/> <span className="text-white">Gala</span></h3>
-                <p className="text-white/80 font-bold uppercase text-[10px] tracking-widest leading-relaxed">
+                <p className="text-white/95 font-bold uppercase text-[10px] tracking-widest leading-relaxed">
                   A great time to reflect the year, have great food all fun around.
                 </p>
-                <div className="mt-8 h-1 w-0 group-hover:w-full bg-black transition-all duration-500" />
+                <div className="mt-8 h-1 w-12 group-hover:w-full bg-white transition-all duration-500" />
               </div>
-            </div>
+            </Link>
 
             {/* Card 3: Socials (BBQ) */}
-            <div className="group relative aspect-[4/5] bg-ingwe-concrete overflow-hidden flex flex-col justify-end p-10">
-              {/* Background Image Layer */}
+            <div className="group relative aspect-[4/5] bg-neutral-950 overflow-hidden flex flex-col justify-end p-10 border border-white/10">
               <div className="absolute inset-0 z-0">
                 <img 
                   src="/images/together.jpg" 
                   alt="Community BBQ"
-                  className="w-full h-full object-cover grayscale opacity-40 mix-blend-multiply group-hover:scale-110 group-hover:opacity-60 transition-all duration-700"
+                  className="w-full h-full object-cover brightness-100 opacity-85 group-hover:scale-110 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-ingwe-blue/15" />
               </div>
 
-              {/* Content Layer */}
               <div className="relative z-10">
-                <Users className="text-ingwe-blue mb-4 opacity-50 group-hover:opacity-100 transition-opacity" size={32} />
-                <h3 className="text-4xl font-black italic uppercase leading-none mb-4">Summer <br/> <span className="text-ingwe-blue">Socials</span></h3>
-                <p className="text-gray-400 font-bold uppercase text-[10px] tracking-widest leading-relaxed">
+                <Users className="text-ingwe-blue mb-4" size={32} />
+                <h3 className="text-4xl font-black italic uppercase leading-none mb-4 text-white">Summer <br/> <span className="text-ingwe-blue">Socials</span></h3>
+                <p className="text-gray-200 font-bold uppercase text-[10px] tracking-widest leading-relaxed">
                   Annual branch barbecues. Networking and building the diaspora pride.
                 </p>
-                <div className="mt-8 h-1 w-0 group-hover:w-full bg-ingwe-blue transition-all duration-500" />
+                <div className="mt-8 h-1 w-12 group-hover:w-full bg-ingwe-blue transition-all duration-500" />
               </div>
             </div>
 
@@ -292,16 +285,16 @@ export default function LandingPage() {
       </section>
 
       {/* --- BRANCH NEWS & EVENTS DISPATCH --- */}
-      <section className="py-32 px-6 bg-black border-t border-white/5 relative z-30">
+      <section className="py-32 px-6 bg-gradient-to-b from-black via-ingwe-blue/[0.05] to-black border-t border-white/10 relative z-30">
         <div className="max-w-7xl mx-auto">
           
           {/* Header Line */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
             <div>
               <span className="text-ingwe-blue font-black uppercase text-[10px] tracking-[0.4em] block mb-2">// THE DISPATCH</span>
-              <h2 className="text-5xl md:text-6xl font-black italic uppercase tracking-tighter">Branch News & <br /> <span className="text-white">Upcoming Action</span></h2>
+              <h2 className="text-5xl md:text-6xl font-black italic uppercase tracking-tighter">Branch News & <br /> <span className="text-ingwe-blue">Upcoming Action</span></h2>
             </div>
-            <p className="text-gray-500 font-bold uppercase text-[10px] tracking-widest max-w-xs md:text-right">
+            <p className="text-gray-400 font-bold uppercase text-[10px] tracking-widest max-w-xs md:text-right">
               Live updates, logistics, and community bulletins from the Toronto diaspora network.
             </p>
           </div>
@@ -310,16 +303,16 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
             {/* LEFT: Featured News Story (5 Columns) */}
-            <div className="lg:col-span-5 group relative bg-white/[0.02] border border-white/10 flex flex-col justify-between overflow-hidden min-h-[500px]">
+            <div className="lg:col-span-5 group relative bg-gradient-to-b from-ingwe-blue/15 to-white/[0.03] border border-ingwe-blue/30 flex flex-col justify-between overflow-hidden min-h-[500px]">
               
               {/* Tournament Announcement Image Window */}
               <div className="w-full h-48 overflow-hidden relative border-b border-white/10">
                 <img 
-                  src="/images/gala2026.png" // Use a high-action pitch or stadium asset
+                  src="/images/gala2026.png" 
                   alt="Official Tournament Campaign" 
-                  className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
+                  className="w-full h-full object-cover brightness-100 contrast-105 group-hover:scale-105 transition-all duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
                 <span className="absolute top-4 left-4 bg-ingwe-blue text-white text-[9px] font-black uppercase px-2 py-1 tracking-wider skew-x-[-10deg]">
                   Official Invitation
                 </span>
@@ -328,11 +321,11 @@ export default function LandingPage() {
               {/* Announcement Body Content */}
               <div className="p-8 flex-grow flex flex-col justify-between">
                 <div>
-                  <span className="text-gray-500 font-bold text-[10px] tracking-widest block mb-3">Dec 26, 2026</span>
+                  <span className="text-ingwe-blue font-bold text-[10px] tracking-widest block mb-3">Dec 26, 2026</span>
                   <h3 className="text-3xl font-black italic uppercase tracking-tight text-white mb-4 group-hover:text-ingwe-blue transition-colors duration-300">
                     AFC Leopard's Toronto Branch, End of Year Party and Dance
                   </h3>
-                  <p className="text-gray-400 font-medium text-sm leading-relaxed mb-8">
+                  <p className="text-gray-300 font-medium text-sm leading-relaxed mb-8">
                     To mark the end of an amazing year, join us for an evening of celebration, culture, and community!
                   </p>
                 </div>
@@ -346,55 +339,48 @@ export default function LandingPage() {
             {/* RIGHT: Chronological Events Feed (7 Columns) */}
             <div className="lg:col-span-7 space-y-4">
               
-              {/* Event Event Card 1 */}
-              <div className="flex items-center bg-white text-black p-6 gap-6 hover:bg-ingwe-blue hover:text-white transition-all duration-300 transform hover:-translate-y-1">
-                {/* Date Stamp */}
+              {/* Event Card 1 */}
+              <div className="flex items-center bg-white text-black p-6 gap-6 border-l-8 border-ingwe-blue hover:bg-ingwe-blue hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                 <div className="flex flex-col items-center justify-center border-r-2 border-black/10 pr-6 min-w-[70px]">
                   <span className="text-3xl font-black italic leading-none">TBD</span>
                   <span className="text-[10px] font-black uppercase tracking-widest">TBD</span>
                 </div>
-                {/* Details */}
                 <div className="flex-grow">
-                  <span className="text-[9px] font-black uppercase tracking-widest bg-black text-white px-2 py-0.5 inline-block mb-1">Community</span>
+                  <span className="text-[9px] font-black uppercase tracking-widest bg-ingwe-blue text-white px-2 py-0.5 inline-block mb-1">Community</span>
                   <h4 className="text-xl font-black uppercase tracking-tight">2027 Konki Tournament</h4>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/60 group-hover:text-white/80 mt-1">08:30 AM • TBD, Toronto</p>
-                </div>
-                {/* Action CTA */}
-                <div className="hidden sm:block">
-                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Stay Tuned</span>
-                </div>
-              </div>
-
-              {/* Event Event Card 2 */}
-              <div className="flex items-center bg-white text-black p-6 gap-6 hover:bg-ingwe-blue hover:text-white transition-all duration-300 transform hover:-translate-y-1">
-                {/* Date Stamp */}
-                <div className="flex flex-col items-center justify-center border-r-2 border-black/10 pr-6 min-w-[70px]">
-                  <span className="text-3xl font-black italic leading-none">TBD</span>
-                  <span className="text-[10px] font-black uppercase tracking-widest">TBD</span>
-                </div>
-                {/* Details */}
-                <div className="flex-grow">
-                  <span className="text-[9px] font-black uppercase tracking-widest bg-black text-white px-2 py-0.5 inline-block mb-1">Community</span>
-                  <h4 className="text-xl font-black uppercase tracking-tight">Swahili Summer  Festival</h4>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/60 mt-1">10:00 AM • RTBD, Toronto</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/70 group-hover:text-white/90 mt-1">08:30 AM • TBD, Toronto</p>
                 </div>
                 <div className="hidden sm:block">
                   <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Stay Tuned</span>
                 </div>
               </div>
 
-              {/* Event Event Card 3 */}
-              <div className="flex items-center bg-white text-black p-6 gap-6 hover:bg-ingwe-blue hover:text-white transition-all duration-300 transform hover:-translate-y-1">
-                {/* Date Stamp */}
+              {/* Event Card 2 */}
+              <div className="flex items-center bg-white text-black p-6 gap-6 border-l-8 border-ingwe-blue hover:bg-ingwe-blue hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                 <div className="flex flex-col items-center justify-center border-r-2 border-black/10 pr-6 min-w-[70px]">
                   <span className="text-3xl font-black italic leading-none">TBD</span>
                   <span className="text-[10px] font-black uppercase tracking-widest">TBD</span>
                 </div>
-                {/* Details */}
                 <div className="flex-grow">
-                  <span className="text-[9px] font-black uppercase tracking-widest bg-black text-white px-2 py-0.5 inline-block mb-1">Philanthropy</span>
+                  <span className="text-[9px] font-black uppercase tracking-widest bg-ingwe-blue text-white px-2 py-0.5 inline-block mb-1">Community</span>
+                  <h4 className="text-xl font-black uppercase tracking-tight">Swahili Summer Festival</h4>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/70 group-hover:text-white/90 mt-1">10:00 AM • TBD, Toronto</p>
+                </div>
+                <div className="hidden sm:block">
+                  <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Stay Tuned</span>
+                </div>
+              </div>
+
+              {/* Event Card 3 */}
+              <div className="flex items-center bg-white text-black p-6 gap-6 border-l-8 border-ingwe-blue hover:bg-ingwe-blue hover:text-white transition-all duration-300 transform hover:-translate-y-1">
+                <div className="flex flex-col items-center justify-center border-r-2 border-black/10 pr-6 min-w-[70px]">
+                  <span className="text-3xl font-black italic leading-none">TBD</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">TBD</span>
+                </div>
+                <div className="flex-grow">
+                  <span className="text-[9px] font-black uppercase tracking-widest bg-ingwe-blue text-white px-2 py-0.5 inline-block mb-1">Philanthropy</span>
                   <h4 className="text-xl font-black uppercase tracking-tight">Kit Collection Drive Close-out</h4>
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/60 mt-1">All Day • Main Sorting Facility Drop-off</p>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-black/70 group-hover:text-white/90 mt-1">All Day • Main Sorting Facility Drop-off</p>
                 </div>
                 <div className="hidden sm:block">
                   <span className="text-xs font-black uppercase tracking-tighter border-2 border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">Stay Tuned</span>
@@ -409,37 +395,37 @@ export default function LandingPage() {
       </section>
 
       {/* --- THE LEADERSHIP & NEXT ACTION --- */}
-      <section className="py-32 px-6 bg-ingwe-concrete/5 relative z-30">
+      <section className="py-32 px-6 bg-gradient-to-r from-ingwe-blue/15 via-black to-ingwe-blue/10 relative z-30">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
           {/* Left: Leadership Quote */}
           <div className="relative">
-            <div className="absolute -top-10 -left-10 text-9xl text-white/[0.03] font-black italic select-none">"</div>
+            <div className="absolute -top-10 -left-10 text-9xl text-ingwe-blue/15 font-black italic select-none">"</div>
             <p className="text-3xl md:text-4xl font-black italic uppercase leading-tight mb-8">
               "We aren't just building a club in Toronto; we are preserving a <span className="text-ingwe-blue">legacy</span> that started in 1964."
             </p>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-[2px] bg-ingwe-blue" />
+              <div className="w-12 h-[3px] bg-ingwe-blue" />
               <div>
-                <p className="font-black uppercase tracking-widest text-sm">Branch Chairman</p>
-                <p className="text-gray-500 text-[10px] font-bold uppercase tracking-[0.2em]">Toronto Supporters Club</p>
+                <p className="font-black uppercase tracking-widest text-sm text-white">Branch Chairman</p>
+                <p className="text-ingwe-blue text-[10px] font-bold uppercase tracking-[0.2em]">Toronto Supporters Club</p>
               </div>
             </div>
           </div>
 
           {/* Right: Next Match Briefing */}
-          <div className="bg-white p-1 text-black skew-x-[-2deg]">
+          <div className="bg-ingwe-blue p-1 text-black skew-x-[-2deg] shadow-2xl">
             <div className="bg-white border-2 border-black p-8 flex flex-col justify-between min-h-[300px]">
               <div>
                 <div className="flex justify-between items-start mb-10">
-                  <span className="bg-black text-white px-4 py-1 text-[10px] font-black uppercase tracking-tighter">Next Matchday</span>
+                  <span className="bg-ingwe-blue text-white px-4 py-1 text-[10px] font-black uppercase tracking-tighter">Next Matchday</span>
                   <span className="text-right font-black italic uppercase text-sm">Toronto, ON</span>
                 </div>
                 <h4 className="text-5xl font-black italic uppercase tracking-tighter mb-2">Ingwe Toronto FC <span className="text-ingwe-blue">vs</span> Nile FC</h4>
-                <p className="font-bold uppercase text-[10px] tracking-widest text-gray-500">Date: TBD • Centennial Park Stadium</p>
+                <p className="font-bold uppercase text-[10px] tracking-widest text-gray-600">Date: TBD • Centennial Park Stadium</p>
               </div>
               
-              <button className="w-full mt-8 bg-black text-white py-4 font-black uppercase italic hover:bg-ingwe-blue transition-colors">
+              <button className="w-full mt-8 bg-ingwe-blue text-white py-4 font-black uppercase italic hover:bg-black transition-colors">
                 Get Match Reminders
               </button>
             </div>
@@ -449,14 +435,14 @@ export default function LandingPage() {
       </section>
 
       {/* 4. THE MARQUEE: MOTION */}
-      <div className="bg-white py-4 overflow-hidden whitespace-nowrap border-y-2 border-black relative z-30">
+      <div className="bg-ingwe-blue py-4 overflow-hidden whitespace-nowrap border-y-2 border-white/20 relative z-30">
         <motion.div 
           animate={{ x: [0, -1000] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           className="inline-block"
         >
           {[...Array(10)].map((_, i) => (
-            <span key={i} className="text-black font-black italic uppercase text-2xl mx-12">
+            <span key={i} className="text-white font-black italic uppercase text-2xl mx-12">
               Ours Forever • Ingwe Toronto • More Than A Club • Since 1964 • Ingwe Le Notre Pour Toujours • 
             </span>
           ))}
