@@ -207,13 +207,16 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* --- 3. COMMUNITY GRID: WITH VIBRANT BACKGROUNDS --- */}
+      {/* --- 3. COMMUNITY GRID: ALL CARDS INTERACTIVE --- */}
       <section className="py-32 px-6 bg-gradient-to-b from-ingwe-blue/10 via-black to-black relative overflow-hidden z-30">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-2 bg-ingwe-blue/15 border border-ingwe-blue/30 p-1">
             
-            {/* Card 1: Watch Parties */}
-            <div className="group relative aspect-[4/5] bg-neutral-950 overflow-hidden flex flex-col justify-end p-10 border border-white/10">
+            {/* Card 1: Watch Parties (Linked to Heritage Match Center) */}
+            <Link 
+              href="/heritage" 
+              className="group relative aspect-[4/5] bg-neutral-950 overflow-hidden flex flex-col justify-end p-10 border border-white/10 cursor-pointer block"
+            >
               <div className="absolute inset-0 z-0">
                 <img 
                   src="/images/action2.jpg" 
@@ -224,14 +227,16 @@ export default function LandingPage() {
               </div>
 
               <div className="relative z-10">
-                <Clock className="text-ingwe-blue mb-4" size={32} />
+                <div className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-ingwe-blue mb-3 group-hover:translate-x-1 transition-transform">
+                  Match Center <ArrowRight size={14} />
+                </div>
                 <h3 className="text-4xl font-black italic uppercase leading-none mb-4 text-white">Watch <br/> <span className="text-ingwe-blue">Parties</span></h3>
                 <p className="text-gray-200 font-bold uppercase text-[10px] tracking-widest leading-relaxed">
                   High energy, pure passion, and East African flavors in the heart of the 6ix.
                 </p>
                 <div className="mt-8 h-1 w-12 group-hover:w-full bg-ingwe-blue transition-all duration-500" />
               </div>
-            </div>
+            </Link>
 
             {/* Card 2: Ingwe Gala (Linked to /gala) */}
             <Link 
@@ -259,8 +264,11 @@ export default function LandingPage() {
               </div>
             </Link>
 
-            {/* Card 3: Socials (BBQ) */}
-            <div className="group relative aspect-[4/5] bg-neutral-950 overflow-hidden flex flex-col justify-end p-10 border border-white/10">
+            {/* Card 3: Summer Socials (Linked to Squad Membership Join Section) */}
+            <Link 
+              href="/squad#join" 
+              className="group relative aspect-[4/5] bg-neutral-950 overflow-hidden flex flex-col justify-end p-10 border border-white/10 cursor-pointer block"
+            >
               <div className="absolute inset-0 z-0">
                 <img 
                   src="/images/together.jpg" 
@@ -271,14 +279,16 @@ export default function LandingPage() {
               </div>
 
               <div className="relative z-10">
-                <Users className="text-ingwe-blue mb-4" size={32} />
+                <div className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-ingwe-blue mb-3 group-hover:translate-x-1 transition-transform">
+                  Join The Pride <ArrowRight size={14} />
+                </div>
                 <h3 className="text-4xl font-black italic uppercase leading-none mb-4 text-white">Summer <br/> <span className="text-ingwe-blue">Socials</span></h3>
                 <p className="text-gray-200 font-bold uppercase text-[10px] tracking-widest leading-relaxed">
                   Annual branch barbecues. Networking and building the diaspora pride.
                 </p>
                 <div className="mt-8 h-1 w-12 group-hover:w-full bg-ingwe-blue transition-all duration-500" />
               </div>
-            </div>
+            </Link>
 
           </div>
         </div>
